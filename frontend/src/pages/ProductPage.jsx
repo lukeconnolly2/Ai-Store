@@ -1,12 +1,19 @@
 import { useParams } from "react-router-dom"
 import { TESTPRODUCTS } from "../../TESTPRODUCTS"
 import { Link } from "react-router-dom"
+import { motion } from "framer-motion"
 
 export default function ProductPage() {
     const {prodid} = useParams()
     const [prod] = TESTPRODUCTS.filter((product) => {return prodid == product.id})
     return (
-      <>
+        <motion.main
+        className="main__container"
+        initial={{ opacity: 0 }}
+         animate={{ opacity: 100 }}
+         exit={{ opacity: 0 }}
+         transition={{ duration: .1 }}
+        >
         <div className="flex flex-row justify-between h-screen">
             <div className="basis-1/12 p-4">
                 <Link to="../../products">
@@ -22,6 +29,6 @@ export default function ProductPage() {
             </div>
             <div className="basis-6/12 flex flex-col justify-start mt-20">{prod.description}</div>
         </div>
-      </>
+      </motion.main>
   )}
   
