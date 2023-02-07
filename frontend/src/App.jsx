@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="bg-bgdark text-primary font-coolfont">
       <NavBar/>
-      <div className="container mx-auto mt-2">
+      <div className="container mx-5 mt-2">
         <Routes>
           
           <Route path="/" element={<Home />} />

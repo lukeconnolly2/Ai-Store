@@ -7,7 +7,7 @@ export default function ProductPage() {
     const [prod] = TESTPRODUCTS.filter((product) => {return prodid == product.id})
     return (
       <>
-        <div className="flex flex-row">
+        <div className="flex flex-row justify-between">
             <div className="basis-1/12 p-4">
                 <Link to="../../products">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-12 w-12">
@@ -15,9 +15,12 @@ export default function ProductPage() {
                 </svg>
                 </Link>
             </div>
-            <div className="basis-5/12 pt-5"> <img src={prod.productImgUrl} /> </div>
+            <div className="basis-4/12 pt-5"> <img src={prod.productImgUrl} /> </div>
             <div className="basis-5/12 p-10">{prod.description}</div>
-            <div className="basis-1/12 p-10 text-2xl">€{prod.price}</div>
+            <div className="basis-2/12 p-1 text-2xl flex flex-col justify-between"> 
+                <div className="top-2">€{prod.price}</div>
+                <div className="bottom-0 w-full h-16 bg-secondary text-white flex place-items-center rounded-md px-auto">Add to Cart</div>
+            </div>
         </div>
       </>
   )}
