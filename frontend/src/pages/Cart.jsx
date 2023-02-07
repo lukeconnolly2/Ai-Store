@@ -1,12 +1,12 @@
 export default function Cart() {
   return (
-    <div className="h-screen md:h-[80vh] w-full">
-      <div className="bg-bglight h-1/5 pl-5 md:pl-10 pt-10">
+    <div className="h-screen md:h-[80vh] w-full px-5  md:px-10 pt-10">
+      <div className="h-1/5">
         <h2 className="font text-2xl font-bold tracking-tight text-alt sm:text-4xl">My Cart</h2>
       </div>
-      <div className="bg-alt h-[75vh] grid grid-cols-1 md:grid-cols-5">
-        <div className="bg-bglight h-full col-span-3"> column 1</div>
-        <div className="bg-bgdark h-full col-span-2">column 2</div>
+      <div className="h-5/6 grid grid-cols-1 md:grid-cols-5 gap-5">
+        <div className="h-full col-span-3 outline outline-offset-0 outline-3 p-5 outline-primary rounded"> column 1</div>
+        <div className="h-full col-span-2 p-5">column 2</div>
       </div>
     </div>
   )
