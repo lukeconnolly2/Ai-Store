@@ -1,25 +1,26 @@
-import {Route, Routes} from "react-router-dom"
-import NavBar from './NavBar'
-import Home from './pages/Home'
-import Products from './pages/Products'
-import Cart from "./pages/Cart"
-import ProductPage from "./pages/ProductPage"
-import { TESTPRODUCTS } from "../TESTPRODUCTS"
+import {Route, Routes, useLocation} from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import NavBar from './NavBar';
+import Home from './pages/Home';
+import Products from './pages/Products';
+import Cart from "./pages/Cart";
+import ProductPage from "./pages/ProductPage";
+
+
 function App() {
+  const location = useLocation()
   return (
     <div className="bg-bgdark text-primary font-coolfont">
       <NavBar/>
-      <div className="container mx-5 mt-2">
-        <Routes>
-          
-          <Route path="/" element={<Home />} />
-          <Route path="/products" element={<Products />} />
-          <Route
-            element={<ProductPage />}
-            path="product/:prodid"
-          />      
-          <Route path="/cart" element={<Cart />} />
-        </Routes> 
+      <div className="container mx- mt-2">
+        <AnimatePresence>
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<Home />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="product/:prodid" element={<ProductPage />}/>      
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
+        </AnimatePresence>
       </div>
     </div>
 )}
