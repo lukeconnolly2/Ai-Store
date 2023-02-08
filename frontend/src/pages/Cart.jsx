@@ -3,6 +3,7 @@ import { ProductPreview } from "./ProductPreview"
 import { TESTPRODUCTS } from "../../TESTPRODUCTS"
 
 export default function Cart() {
+  // Get cart from cookies
   return (
     <div className="h-screen md:h-[80vh] w-full px-5  md:px-10 pt-10">
       <div className="h-1/5">
@@ -14,7 +15,7 @@ export default function Cart() {
             <ProductPreview product={prod} />
           ))
         } </div>
-        <div className="h-full col-span-2 p-5">column 2</div>
+        <div className="h-full col-span-2 p-5">{}</div>
       </div>
     </div>
   )
