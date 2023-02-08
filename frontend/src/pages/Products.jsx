@@ -12,8 +12,8 @@ export default function Products() {
      transition={{ duration: .2 }}
     >
       <div id="products" className="grid grid-rows-auto w-100 gap-0 bg-bgdark object-cover">
-        {TESTPRODUCTS.map((product, delay) => (
-            <Product product={product} delay={delay} />
+        {TESTPRODUCTS.map((product) => (
+            <Product product={product} />
         ))}
       </div>
     </motion.main>

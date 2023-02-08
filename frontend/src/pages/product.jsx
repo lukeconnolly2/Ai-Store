@@ -7,13 +7,10 @@ export const Product = (props) => {
     const springs = useSpring({
         from:{ 
             x: 1000,
-            opacity: 0,
         },
         to: { 
             x: 0,
-            opacity: 1,
         },
-        trail: 150
       })
     return (
         <animated.div style={springs} className="text-slate-900 bg-primary h-[40vh] col-span-2 translate-x-0 duration-300 border-black border-y-2 m-y-auto flex flex-row hover:h-[50vh] hover:bg-secondary place-items-center justify-evenly"> 
