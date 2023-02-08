@@ -11,6 +11,7 @@ export const Product = (props) => {
         to: { 
             y: 0,
         },
+        config: {duration: 500},
       })
     return (
         <animated.div style={springs} className="text-slate-900 bg-primary h-[40vh] col-span-2 translate-x-0 duration-300 border-black border-y-2 m-y-auto flex flex-row hover:h-[50vh] hover:bg-secondary place-items-center justify-evenly rounded-md"> 
