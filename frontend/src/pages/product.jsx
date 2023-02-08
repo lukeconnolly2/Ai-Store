@@ -1,13 +1,25 @@
 import { Link } from "react-router-dom";
+import { animated, useSpring } from '@react-spring/web'
 
 export const Product = (props) => {
-    const {id, productName, price, productImgUrl} = props.data;
+    const {id, productName, price, productImgUrl} = props.product;
     const placeholderImgUrl = "https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM="
+    const springs = useSpring({
+        from:{ 
+            x: 1000,
+            opacity: 0,
+        },
+        to: { 
+            x: 0,
+            opacity: 1,
+        },
+        trail: 150
+      })
     return (
-        <div className="text-slate-900 bg-primary h-[40vh] col-span-2 translate-x-0 duration-300 border-black border-y-2 m-y-auto flex flex-row hover:h-[50vh] hover:bg-secondary place-items-center"> 
-            <div className="h-auto max-w-xs object-contain p-3"> <img className=" h-fit w-fit" src={productImgUrl ? productImgUrl : placeholderImgUrl} /> </div>
+        <animated.div style={springs} className="text-slate-900 bg-primary h-[40vh] col-span-2 translate-x-0 duration-300 border-black border-y-2 m-y-auto flex flex-row hover:h-[50vh] hover:bg-secondary place-items-center justify-evenly"> 
+            <div className="h-auto max-w-xs object-contain p-3 basis-"> <img className=" h-fit w-fit" src={productImgUrl ? productImgUrl : placeholderImgUrl} /> </div>
             <div className="basis-5/12 p-3 text-x"> {productName}</div>
-            <div className="basis-2/12 p-3 justify-end absolute right-10"> 
+            <div className="basis-1/12 p-0 flex justify-end w-[100%]"> 
                 <Link
                 to={`../product/${id}`}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-12 w-12">
@@ -15,5 +27,5 @@ export const Product = (props) => {
                     </svg>
                 </Link>
              </div>
-        </div>
+        </animated.div>
 )}
