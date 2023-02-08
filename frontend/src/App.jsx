@@ -14,7 +14,7 @@ function App() {
     <div className="bg-bgdark text-primary font-coolfont">
       <NavBar/>
       <div className="container mx- mt-2">
-        <AnimatePresence>
+        <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />

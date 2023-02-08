@@ -6,7 +6,7 @@ export default function Cart() {
     initial={{ opacity: 0 }}
      animate={{ opacity: 100 }}
      exit={{ opacity: 0 }}
-     transition={{ duration: .1 }}
+     transition={{ duration: .2 }}
     >
       <div>Cart</div>
     </motion.main>

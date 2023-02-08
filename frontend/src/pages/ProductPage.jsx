@@ -12,9 +12,9 @@ export default function ProductPage() {
         initial={{ opacity: 0 }}
          animate={{ opacity: 100 }}
          exit={{ opacity: 0 }}
-         transition={{ duration: .1 }}
+         transition={{ duration: .2 }}
         >
-        <div className="flex flex-row justify-between h-screen">
+        <div className="flex flex-row justify-between h-[80vh]">
             <div className="basis-1/12 p-4">
                 <Link to="../../products">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-12 w-12">
@@ -25,7 +25,7 @@ export default function ProductPage() {
             <div className="basis-4/12 pt-5 flex flex-col justify-evenly items-center">
                  <div><img src={prod.productImgUrl} /></div>
                  <div className="text-alt text-4xl">Price: €{prod.price}</div>
-                 <div className="w-full h-16 bg-secondary text-white flex flex-row justify-center items-center rounded-md px-auto">Add to Cart</div>
+                 <Link to="/checkoutpage"><div className="w-full h-16 bg-secondary text-white flex flex-row justify-center items-center rounded-md px-auto">Add to Cart</div></Link>
             </div>
             <div className="basis-6/12 flex flex-col justify-start mt-20">{prod.description}</div>
         </div>

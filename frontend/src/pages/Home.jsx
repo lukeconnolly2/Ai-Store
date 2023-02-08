@@ -7,7 +7,7 @@ export default function Home() {
     initial={{ opacity: 0}}
      animate={{ opacity: 100 }}
      exit={{ opacity: 0 }}
-     transition={{ duration: .1 }}
+     transition={{ duration: .3 }}
     >
     <div class="relative overflow-hidden bg-bgdark h-screen">
         <div class="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
