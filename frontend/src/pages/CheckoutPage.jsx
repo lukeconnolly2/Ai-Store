@@ -1,10 +1,16 @@
 import React from "react";
 import {Link} from "react-router-dom"
+import {motion} from "framer-motion"
 
 export default function CheckoutPage() {
     return (
         
-      <div> 
+      <motion.main
+        initial={{ opacity: 0}}
+        animate={{ opacity: 100 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: .3 }}
+      > 
             <div>
                 <h1 class=" text-center text-5xl">Checkout</h1>
 
@@ -121,6 +127,6 @@ export default function CheckoutPage() {
                 </form>
                 
             </div>
-      </div>
+      </motion.main>
     )
   }
