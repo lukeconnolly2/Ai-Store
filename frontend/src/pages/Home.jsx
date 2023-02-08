@@ -1,6 +1,14 @@
 import {Link} from "react-router-dom"
+import {motion} from "framer-motion"
 export default function Home() {
   return (
+    <motion.main
+    className=""
+    initial={{ opacity: 0}}
+     animate={{ opacity: 100 }}
+     exit={{ opacity: 0 }}
+     transition={{ duration: .3 }}
+    >
     <div class="relative overflow-hidden bg-bgdark h-screen">
         <div class="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
           <div class="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
@@ -49,5 +57,6 @@ export default function Home() {
           </div>
         </div>
       </div>
+      </motion.main>
   )
 }

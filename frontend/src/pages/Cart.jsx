@@ -1,3 +1,4 @@
+import {motion} from "framer-motion"
 export default function Cart() {
   return (
     <div className="h-screen md:h-[80vh] w-full px-5  md:px-10 pt-10">
