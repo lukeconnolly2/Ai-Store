@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Products from './pages/Products';
 import Cart from "./pages/Cart";
 import ProductPage from "./pages/ProductPage";
+import CheckoutPage from "./pages/CheckoutPage";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
             <Route path="/products" element={<Products />} />
             <Route path="product/:prodid" element={<ProductPage />}/>      
             <Route path="/cart" element={<Cart />} />
+            <Route path="/checkoutpage" element={<CheckoutPage />} />
           </Routes>
         </AnimatePresence>
       </div>
