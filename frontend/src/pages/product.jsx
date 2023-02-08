@@ -13,8 +13,8 @@ export const Product = (props) => {
         },
       })
     return (
-        <animated.div style={springs} className="text-slate-900 bg-primary h-[40vh] col-span-2 translate-x-0 duration-300 border-black border-y-2 m-y-auto flex flex-row hover:h-[50vh] hover:bg-secondary place-items-center justify-evenly"> 
-            <div className="h-auto max-w-xs object-contain p-3 basis-"> <img className=" h-fit w-fit" src={productImgUrl ? productImgUrl : placeholderImgUrl} /> </div>
+        <animated.div style={springs} className="text-slate-900 bg-primary h-[40vh] col-span-2 translate-x-0 duration-300 border-black border-y-2 m-y-auto flex flex-row hover:h-[50vh] hover:bg-secondary place-items-center justify-evenly rounded-md"> 
+            <div className="h-auto max-w-xs object-contain p-3 basis-"> <img className=" h-fit w-fit rounded-sm" src={productImgUrl ? productImgUrl : placeholderImgUrl} /> </div>
             <div className="basis-5/12 p-3 text-x"> {productName}</div>
             <div className="basis-1/12 p-0 flex justify-end w-[100%]"> 
                 <Link

@@ -9,7 +9,7 @@ export default function CheckoutPage() {
         initial={{ opacity: 0}}
         animate={{ opacity: 100 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: .3 }}
+        transition={{ duration: .2 }}
       > 
             <div>
                 <h1 class=" text-center text-5xl">Checkout</h1>
