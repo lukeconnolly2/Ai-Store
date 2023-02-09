@@ -1,6 +1,6 @@
 
 
-export const TESTPRODUCTSDISPLAY = [
+export const TESTPRODUCTSALL = [
     {
         id: 1,
         productName: "Stella",

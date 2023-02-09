@@ -1,12 +1,12 @@
 import { useParams } from "react-router-dom"
-import { TESTPRODUCTS } from "../../TESTPRODUCTS"
+import { TESTPRODUCTSDISPLAY } from "../../TESTPRODUCTSDISPLAY"
 import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
 import { animated, useSpring } from '@react-spring/web'
 
 export default function ProductPage() {
     const {prodid} = useParams()
-    const [prod] = TESTPRODUCTS.filter((product) => {return prodid == product.id})
+    const [prod] = TESTPRODUCTSDISPLAY.filter((product) => {return prodid == product.id})
 
     const springs = useSpring({
         from:{ 

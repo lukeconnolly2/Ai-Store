@@ -1,5 +1,5 @@
 import {createContext, useState} from "react"
-import { TESTPRODUCTS } from "../../TESTPRODUCTSDISPLAY"
+import { TESTPRODUCTS } from "../../TESTPRODUCTSALL"
 
 export const ShopContext = createContext(null)
 
