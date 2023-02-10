@@ -6,11 +6,13 @@ import Products from './pages/Products';
 import Cart from "./pages/Cart";
 import ProductPage from "./pages/ProductPage";
 import CheckoutPage from "./pages/CheckoutPage";
+import { ShopContextProvider } from "./context/ShopContext";
 
 
 function App() {
   const location = useLocation()
   return (
+    <ShopContextProvider>
     <div className="bg-bgdark text-primary font-coolfont">
       <NavBar/>
       <div className="container mx- mt-2">
@@ -25,6 +27,7 @@ function App() {
         </AnimatePresence>
       </div>
     </div>
+    </ShopContextProvider>
 )}
 
 export default App

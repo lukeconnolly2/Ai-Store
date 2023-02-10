@@ -1,7 +1,9 @@
-import { Fragment } from 'react'
+import { Fragment, useContext } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link, NavLink  } from "react-router-dom"
+import { ShopContext } from './context/ShopContext'
+
 
 const user = {
   name: 'Tom Cook',
@@ -13,7 +15,7 @@ const user = {
 const navigation = [
   { name: 'Home', href: '/'},
   { name: 'Products', href: '/products'},
-  { name: 'Cart', href: '/cart'},
+  { name: 'Cart 🛒' , href: '/cart'},
 ]
 const userNavigation = [
   { name: 'Sign out', href: '#' },
@@ -25,6 +27,7 @@ function classNames(...classes) {
 
 
 export default function NavBar() {
+  const { cartItems } = useContext(ShopContext)
   return (
     <>
       <div className="min-h-full">
@@ -54,6 +57,7 @@ export default function NavBar() {
                             {item.name}
                           </NavLink>
                         ))}
+                        <div className='rounded-full ml-0 flex items-baseline'>{cartItems.length}</div>
                       </div>
                     </div>
                   </div>

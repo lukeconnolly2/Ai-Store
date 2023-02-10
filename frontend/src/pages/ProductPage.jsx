@@ -1,12 +1,14 @@
 import { useParams } from "react-router-dom"
-import { TESTPRODUCTS } from "../../TESTPRODUCTS"
+import { TESTPRODUCTSDISPLAY } from "../../TESTPRODUCTSDISPLAY"
 import { Link } from "react-router-dom"
-import { motion } from "framer-motion"
 import { animated, useSpring } from '@react-spring/web'
+import { useContext } from "react"
+import { ShopContext } from "../context/ShopContext"
 
 export default function ProductPage() {
     const {prodid} = useParams()
-    const [prod] = TESTPRODUCTS.filter((product) => {return prodid == product.id})
+    const [prod] = TESTPRODUCTSDISPLAY.filter((product) => {return prodid == product.id})
+    const {addToCart} = useContext(ShopContext)
 
     const springs = useSpring({
         from:{ 
@@ -31,7 +33,7 @@ export default function ProductPage() {
             <div className="basis-4/12 pt-5 flex flex-col justify-evenly items-center">
                  <div><img src={prod.productImgUrl} /></div>
                  <div className="text-alt text-4xl">Price: €{prod.price}</div>
-                 <Link to="/checkoutpage"><div className="w-full h-16 bg-secondary text-white flex flex-row justify-center items-center rounded-md px-auto">Add to Cart</div></Link>
+                 <div className="w-full h-16 bg-secondary text-white flex flex-row justify-center items-center rounded-md px-auto cursor-pointer" onClick={() =>addToCart(prodid)}>Add to Cart</div>
             </div>
             <div className="basis-6/12 flex flex-col justify-start mt-20">{prod.description}</div>
         </animated.div>

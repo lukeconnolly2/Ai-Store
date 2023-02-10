@@ -1,4 +1,4 @@
-import { TESTPRODUCTS } from "../../TESTPRODUCTS"
+import { TESTPRODUCTSDISPLAY } from "../../TESTPRODUCTSDISPLAY"
 import { Product } from "./product"
 import { motion } from "framer-motion"
 
@@ -12,7 +12,7 @@ export default function Products() {
      transition={{ duration: .1 }}
     >
       <div id="products" className="grid grid-rows-auto w-100 gap-0 bg-bgdark object-cover">
-        {TESTPRODUCTS.map((product) => (
+        {TESTPRODUCTSDISPLAY.map((product) => (
             <Product product={product} />
         ))}
       </div>
