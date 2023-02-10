@@ -18,7 +18,7 @@ export const TESTPRODUCTSALL = [
         types: ["Trained","Untrained"]
     },
     {
-        id: 5,
+        id: 3,
         productName: "Keano",
         price: 1,
         productImgUrl: "https://media.licdn.com/dms/image/C4E03AQEbNCzOZcp4ow/profile-displayphoto-shrink_400_400/0/1663964055500?e=1681344000&v=beta&t=2dzmJC0tTCWbA2BZ28FYbiZz-FJUoK2g9CcZnbfFTR4",
