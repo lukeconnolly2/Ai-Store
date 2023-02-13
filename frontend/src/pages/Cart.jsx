@@ -17,7 +17,9 @@ export default function Cart() {
             <ProductPreview product={prod} />
           ))
         } </div>
-        <div className="h-full col-span-2 p-5">Total is {cartTotal()}</div>
+        <div className="h-full col-span-2 p-5">Total is  
+          <span className="text-alt"> €{cartTotal()}</span>
+        </div>
       </div>
     </div>
   )
