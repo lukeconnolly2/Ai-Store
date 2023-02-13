@@ -5,7 +5,7 @@ import { ProductPreview } from "./ProductPreview"
 
 
 export default function Cart() {
-  const {cartItems} = useContext(ShopContext)
+  const {cartItems, cartTotal} = useContext(ShopContext)
   return (
     <div className="h-screen md:h-[80vh] w-full px-5  md:px-10 pt-10">
       <div className="h-1/5">
@@ -17,7 +17,7 @@ export default function Cart() {
             <ProductPreview product={prod} />
           ))
         } </div>
-        <div className="h-full col-span-2 p-5">{}</div>
+        <div className="h-full col-span-2 p-5">Total is {cartTotal()}</div>
       </div>
     </div>
   )
