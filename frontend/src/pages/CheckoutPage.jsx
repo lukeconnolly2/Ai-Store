@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import {Link} from "react-router-dom"
 import {motion} from "framer-motion"
 
-export default function CheckoutPage() {
+
+
+
+const CheckoutPage = () => {
+    const [isFormVisible, setIsFormVisible] = useState(false);
+    const [isFormVisible2, setIsFormVisible2] = useState(false);
     return (
+
+        
         
       <motion.main
         initial={{ opacity: 0}}
@@ -12,108 +19,122 @@ export default function CheckoutPage() {
         transition={{ duration: .2 }}
       > 
             <div>
-                <h1 class=" text-center text-5xl">Checkout</h1>
+                <h1 className=" text-center text-5xl">Checkout</h1>
+                
 
-                <form class="w-full">
-                <h1>Contact Information</h1>
-                    <div class="flex">
-                    
-                        <div class="w-full ">
-                            <label class="block text-gray-600 text-xs" for="FirstName">
-                                FIRST NAME
-                            </label>
+                <button className="bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none" onClick={() => setIsFormVisible(!isFormVisible)}>Contact Information</button>
+      {isFormVisible && (
+                <form className="w-full mt-4">
 
-                            <input class="block w-full bg-gray-200 text-gray-600" id="FirstName" type="text" placeholder="Lucas"/>
-
-                        </div>
-
-                        <div class="w-full px-3">
-                            <label class="block text-gray-600 text-xs" for="LastName">
-                                LAST NAME
-                            </label>
-                            <input class="block w-full bg-gray-200 text-gray-600" id="LastName" type="text" placeholder="Linda"/>
-                        </div>
+                <div className="flex">
+                    <div className="w-full ">
+                    <label className="block text-gray-600 text-xs" htmlFor="FirstName">
+                        FIRST NAME
+                    </label>
+                    <input
+                        className="block w-full bg-gray-200 text-gray-600"
+                        id="FirstName"
+                        type="text"
+                        placeholder="Lucas"
+                    />
                     </div>
-
-                    <div class="flex pt-3">
-                        <div class="w-full ">
-                            <label class="block text-gray-600 text-xs" for="Email">
-                                EMAIL
-                            </label>
-
-                            <input class="block w-full bg-gray-200 text-gray-600" id="Email" type="text" placeholder="lucas@ucd.ie"/>
-
-                        </div>
-
+                    <div className="w-full px-3">
+                    <label className="block text-gray-600 text-xs" htmlFor="LastName">
+                        LAST NAME
+                    </label>
+                    <input
+                        className="block w-full bg-gray-200 text-gray-600"
+                        id="LastName"
+                        type="text"
+                        placeholder="Linda"
+                    />
                     </div>
-
-                    <div class="flex pt-3">
-                        <div class="w-full ">
-                            <label class="block text-gray-600 text-xs" for="PhoneNumber">
-                                PHONE NUMBER
-                            </label>
-
-                            <input class="block w-full bg-gray-200 text-gray-600" id="PhoneNumber" type="text" placeholder="+353*********"/>
-
-                        </div>
-
+                </div>
+                <div className="flex pt-3">
+                    <div className="w-full ">
+                    <label className="block text-gray-600 text-xs" htmlFor="Email">
+                        EMAIL
+                    </label>
+                    <input
+                        className="block w-full bg-gray-200 text-gray-600"
+                        id="Email"
+                        type="text"
+                        placeholder="lucas@ucd.ie"
+                    />
                     </div>
-
-                    <hr class="h-px my-8 bg-gray-200 border-1 dark:bg-gray-700 "/>
-
+                </div>
+                <div className="flex pt-3">
+                    <div className="w-full ">
+                    <label className="block text-gray-600 text-xs" htmlFor="PhoneNumber">
+                        PHONE NUMBER
+                    </label>
+                    <input
+                        className="block w-full bg-gray-200 text-gray-600"
+                        id="PhoneNumber"
+                        type="text"
+                        placeholder="+353*********"
+                    />
+                    </div>
+                </div>
+                
                 </form>
+        )}
+        <hr className="h-px my-8 bg-gray-200 border-1 dark:bg-gray-700 "/>
 
-                <form class="w-full">
+
+        <button className="bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none" onClick={() => setIsFormVisible2(!isFormVisible2)}>Shipping</button>
+      {isFormVisible2 && (
+                <form className="w-full">
                 <h1>Shipping Information</h1>
-                    <div class="flex">
+                    <div className="flex">
                     
-                        <div class="w-full ">
-                            <label class="block text-gray-600 text-xs" for="FirstName">
+                        <div className="w-full ">
+                            <label className="block text-gray-600 text-xs" htmlFor="FirstName">
                                 FIRST NAME
                             </label>
 
-                            <input class="block w-full bg-gray-200 text-gray-600" id="FirstName" type="text" placeholder="Lucas"/>
+                            <input className="block w-full bg-gray-200 text-gray-600" id="FirstName" type="text" placeholder="Lucas"/>
 
                         </div>
 
-                        <div class="w-full px-3">
-                            <label class="block text-gray-600 text-xs" for="LastName">
+                        <div className="w-full px-3">
+                            <label className="block text-gray-600 text-xs" htmlFor="LastName">
                                 LAST NAME
                             </label>
-                            <input class="block w-full bg-gray-200 text-gray-600" id="LastName" type="text" placeholder="Linda"/>
+                            <input className="block w-full bg-gray-200 text-gray-600" id="LastName" type="text" placeholder="Linda"/>
                         </div>
                     </div>
 
-                    <div class="flex pt-3">
-                        <div class="w-full ">
-                            <label class="block text-gray-600 text-xs" for="Address1">
+                    <div className="flex pt-3">
+                        <div className="w-full ">
+                            <label className="block text-gray-600 text-xs" htmlFor="Address1">
                                 Address Line 1
                             </label>
 
-                            <input class="block w-full bg-gray-200 text-gray-600" id="Address1" type="text" placeholder="UCD ROAD"/>
+                            <input className="block w-full bg-gray-200 text-gray-600" id="Address1" type="text" placeholder="UCD ROAD"/>
 
                         </div>
 
                     </div>
 
-                    <div class="flex pt-3">
-                        <div class="w-full ">
-                            <label class="block text-gray-600 text-xs" for="Address2">
+                    <div className="flex pt-3">
+                        <div className="w-full ">
+                            <label className="block text-gray-600 text-xs" htmlFor="Address2">
                                 Address Line 2
                             </label>
 
-                            <input class="block w-full bg-gray-200 text-gray-600" id="Address2" type="text" placeholder="Address Line 2(Optional)"/>
+                            <input className="block w-full bg-gray-200 text-gray-600" id="Address2" type="text" placeholder="Address Line 2(Optional)"/>
 
                         </div>
 
                     </div>
 
-                    <div class="relative pt-3">
-                        <label class="block text-gray-600 text-xs" for="Country">
+                    <div className="relative pt-3">
+                        <label className="block text-gray-600 text-xs" htmlFor="Country">
                             Country
                         </label>
 
-                        <select id="Country" class=" m-2 block w-full bg-gray-200 text-gray-600">
+                        <select defaultValue={"country"} id="Country" className=" m-2 block w-full bg-gray-200 text-gray-600">
                         <option selected>Choose a country</option>
                         <option value="IE">Ireland</option>
                         <option value="FR">France</option>
@@ -122,11 +143,16 @@ export default function CheckoutPage() {
                         
                     </div>
 
-                    <hr class="h-px my-8 bg-gray-200 border-1 dark:bg-gray-700 "/>
+                    <hr className="h-px my-8 bg-gray-200 border-1 dark:bg-gray-700 "/>
 
                 </form>
+                )}
+                
                 
             </div>
       </motion.main>
+      
     )
   }
+
+  export default CheckoutPage;
