@@ -16,7 +16,6 @@ export const ProductPreview = (props) => {
                       )
 
   return (
-        
           <div className="text-slate-900 bg-primary h-[20vh] col-span-2 translate-x-0 duration-300 border-black border-y-2 m-y-auto flex flex-row hover:h-[50vh place-items-center justify-evenly rounded-md select-none"> 
             <Link to={`../product/${id}`}>
               <div className="h-auto max-w-xs object-contain p-3 basis-3/12"> <img className="h-[17vh] w-fit rounded-sm" src={productImgUrl ? productImgUrl : placeholderImgUrl} /> </div>
