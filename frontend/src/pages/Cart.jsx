@@ -1,4 +1,5 @@
 import { useContext } from "react"
+import {Link} from "react-router-dom"
 import { TESTPRODUCTSALL } from "../../TESTPRODUCTSALL"
 import { ShopContext } from "../context/ShopContext"
 import { ProductPreview } from "./ProductPreview"
@@ -17,7 +18,15 @@ export default function Cart() {
             <ProductPreview product={prod} />
           ))
         } </div>
-        <div className="h-full col-span-2 p-5">Total is {cartTotal()}</div>
+        <div className="h-full col-span-2 p-5">
+          <div className="w-full h-5/6">
+          Total is
+              <div className="font text-2xl text-center">€{cartTotal()}</div>
+          </div>
+          <div className="w-full h-1/6 text-right align-text-bottom">
+            <Link to="/checkout" class="inline-block rounded-md border border-transparent bg-secondary py-3 px-8 text-center font-medium text-white hover:bg-secondary">Go to Checkout</Link>
+          </div>
+        </div>
       </div>
     </div>
   )
