@@ -24,7 +24,7 @@ const CheckoutPage = () => {
                 
 
                 <button className="bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none" onClick={() => setIsFormVisible(!isFormVisible)}>Contact Information</button>
-      {isFormVisible && (
+            {isFormVisible && (
                 <form className="w-full mt-4">
 
                 <div className="flex">
@@ -179,7 +179,7 @@ const CheckoutPage = () => {
                                 Card Number
                             </label>
 
-                            <input className="block w-full bg-gray-200 text-gray-600" id="CardNumber" type="text" placeholder="4319*********"/>
+                            <input className="block w-full bg-gray-200 text-gray-600" id="CardNumber" type="text" placeholder="4319*********" required/>
 
                         </div>
 
@@ -203,7 +203,7 @@ const CheckoutPage = () => {
                         </label>
 
                         <select defaultValue={"03/23"} id="ExpiryDate" className=" w-auto m-2 block bg-gray-200 text-gray-600">
-                        <option selected>Choose a country</option>
+                        <option selected>Expiry Date</option>
                         <option value="0223">02/23</option>
                         <option value="0323">03/23</option>
                         <option value="0423">04/23</option>
@@ -250,6 +250,7 @@ const CheckoutPage = () => {
 
 
                 </div>
+                
                 
                 
             </div>
