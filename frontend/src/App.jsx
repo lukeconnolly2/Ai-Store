@@ -6,6 +6,7 @@ import Products from './pages/Products';
 import Cart from "./pages/Cart";
 import ProductPage from "./pages/ProductPage";
 import CheckoutPage from "./pages/CheckoutPage";
+import Login from "./pages/Login"
 import { ShopContextProvider } from "./context/ShopContext";
 
 
@@ -23,6 +24,7 @@ function App() {
             <Route path="product/:prodid" element={<ProductPage />}/>      
             <Route path="/cart" element={<Cart />} />
             <Route path="/checkoutpage" element={<CheckoutPage />} />
+            <Route path="/login" element={<Login />}/>
           </Routes>
         </AnimatePresence>
       </div>
