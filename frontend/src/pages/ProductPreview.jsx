@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
 
 export const ProductPreview = (props) => {
-  const {id, productName, price, productImgUrl, description} = props.product;
+  const {id, productName, price, productImgUrl, type} = props.product;
   const {removeAllFromCart, cartItems, addToCart, removeFromCart} = useContext(ShopContext)
 
   const minus = () => (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -21,7 +21,7 @@ export const ProductPreview = (props) => {
               <div className="h-auto max-w-xs object-contain p-3 basis-3/12"> <img className="h-[17vh] w-fit rounded-sm" src={productImgUrl ? productImgUrl : placeholderImgUrl} /> </div>
             </Link>
               <div className="basis-2/12 p-1"> {productName}</div>
-              <div className="basis-2/12 p-1">Trained</div>
+              <div className="basis-2/12 p-1">{type}</div>
               <div className="basis-2/12 text-xl text-center text-bglight">€{price}</div>
               <div className="basis-1/12 text-3xl text-center p-0 flex flex-row">
               <span className="p-2 text-right" onClick={() => {removeFromCart(id)}}>{minus()}</span>
