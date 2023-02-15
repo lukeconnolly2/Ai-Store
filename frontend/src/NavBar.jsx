@@ -3,6 +3,7 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link, NavLink  } from "react-router-dom"
 import { ShopContext } from './context/ShopContext'
+import { useAuth } from './context/auth'
 
 const user = {
   name: 'Tom Cook',
@@ -26,7 +27,7 @@ function classNames(...classes) {
 
 
 export default function NavBar() {
-  const { cartItems } = useContext(ShopContext)
+  const auth = useAuth()
   return (
     <>
       <div className="min-h-full">
@@ -43,19 +44,25 @@ export default function NavBar() {
                     </div>
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
-                        {navigation.map((item) => (
-                          <NavLink
-                            key={item.name}
-                            to={item.href}
-                            className={({isActive}) => {
-                              return 'px-3 py-2 rounded-md text-sm font-large' + 
-                              (isActive ? 'bg-bgdark text-secondary' : 'text-primary hover:bg-gray-400 hover:text-primary')
-                            }}
-                            aria-current={item.current ? 'page' : undefined}
-                          >
-                            {item.name}
-                          </NavLink>
-                        ))}
+                        {
+                          
+                        
+                          navigation.map((item) => (
+                            <NavLink
+                              key={item.name}
+                              to={item.href}
+                              className={({isActive}) => {
+                                return 'px-3 py-2 rounded-md text-sm font-large' + 
+                                (isActive ? 'bg-bgdark text-secondary' : 'text-primary hover:bg-gray-400 hover:text-primary')
+                              }}
+                            >
+                              {item.name}
+                            </NavLink>
+                          ))
+                        }
+                        {
+                          !auth.user && <NavLink className="px-3 py-2 rounded-md text-sm font-large text-primary hover:bg-gray-400 hover:text-primary" to="/login"> Login </NavLink>
+                        }
                       </div>
                     </div>
                   </div>
