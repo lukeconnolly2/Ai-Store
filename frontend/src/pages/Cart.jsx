@@ -13,7 +13,7 @@ export default function Cart() {
         <h2 className=" inline-block pb-8 font text-2xl font-bold tracking-tight text-alt sm:text-4xl">My Cart</h2>
       </div>
       <div className="h-5/6 grid grid-cols-1 md:grid-cols-5 gap-5">
-        <div className="h-full col-span-3 outline outline-offset-0 outline-3 p-5 outline-primary rounded overflow-scroll"> {
+        <div className="h-full col-span-3 outline outline-offset-0 outline-3 px-5 outline-primary rounded overflow-y-auto"> {
           cartTotal() === 0? 
             <div className="h-full flex justify-center items-center"><p className="font text-9xl text-center">:(</p></div> :
             TESTPRODUCTSALL.filter((prod) => (cartItems[prod.id] > 0)).map((prod) => (
