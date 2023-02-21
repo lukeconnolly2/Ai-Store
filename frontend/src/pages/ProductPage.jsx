@@ -36,7 +36,11 @@ export default function ProductPage() {
                  <div className="text-alt text-4xl">Price: €{prod.price}</div>
                  <div className="w-full h-16 bg-secondary text-white flex flex-row justify-center items-center rounded-md px-auto cursor-pointer" onClick={() =>addToCart(prodid)}>Add to Cart {cartItemsAmount > 0 ? <> ({cartItemsAmount})</> : <></>}</div>
             </div>
-            <div className="basis-6/12 flex flex-col justify-start mt-20">{prod.description}</div>
+            <div className="basis-6/12 flex flex-col justify-start mt-20">
+                {prod.description}
+                <div>{prod.type}</div>
+            
+            </div>
         </animated.div>
   )}
   

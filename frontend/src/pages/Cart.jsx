@@ -20,6 +20,7 @@ export default function Cart() {
               <ProductPreview product={prod}/>
             ))
         } </div>
+
         <div className="h-full col-span-2 px-5">
           <div className="w-full h-5/6"> {
             cartTotal() === 0 ? 

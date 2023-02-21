@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
 
 export const ProductPreview = (props) => {
-  const {id, productName, price, productImgUrl, description} = props.product;
+  const {id, productName, price, productImgUrl, type} = props.product;
   const {removeAllFromCart, cartItems, addToCart, removeFromCart} = useContext(ShopContext)
 
   const minus = () => (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -16,7 +16,6 @@ export const ProductPreview = (props) => {
                       )
 
   return (
-
     <div className="text-slate-900 bg-primary h-[35vh] lg:h-[25vh] col-span-2 rounded my-5">
       <div className="px-3 pt-10 lg:pt-3 text-3xl lg:text-xl box-border h-[5vh] font-bold">
         <span>{productName}</span>
