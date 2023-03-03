@@ -10,6 +10,7 @@ import Login from "./pages/Login"
 import { ShopContextProvider } from "./context/ShopContext";
 import { AuthProvider, useAuth } from "./context/auth";
 import { RequireAuth } from "./context/RequireAuth";
+import AdminDash from "./pages/AdminDash";
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/checkoutpage" element={<CheckoutPage />} />
             <Route path="/login" element={<Login />}/>
+            <Route path="/admindash" element={<AdminDash />}/>
           </Routes>
         </AnimatePresence>
       </div>
