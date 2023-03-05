@@ -19,7 +19,8 @@ const CheckoutPage = () => {
         exit={{ opacity: 0 }}
         transition={{ duration: .2 }}
       > 
-            <div>
+      <div className="grid grid-cols-2 gap-6">
+            <div className="">
                 <h1 className=" text-center text-5xl">Checkout</h1>
                 
 
@@ -167,7 +168,7 @@ const CheckoutPage = () => {
                         <div className="bg-white">
                             {/*  modal header */}
                             <div className="border-b border-solid">
-                                <h3 className="text-2xl">Keano Test</h3>
+                                <h3 className="text-2xl">Enter Card Details</h3>
                             </div>
 
                             <form className="w-full">
@@ -254,6 +255,12 @@ const CheckoutPage = () => {
                 
                 
             </div>
+            <div class="absolute left-1/2 -ml-0.5 w-0.5 h-screen bg-gray-600"></div>
+            <div className=" content-center">
+                <h1 className=" content-center">Order Summary</h1>
+
+            </div>
+        </div>
       </motion.main>
       
     )
