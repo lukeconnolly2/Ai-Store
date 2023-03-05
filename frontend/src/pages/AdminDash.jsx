@@ -1,4 +1,6 @@
 import {Link} from "react-router-dom"
+import { TESTPRODUCTSALL } from "../../TESTPRODUCTSALL"
+import { AdminProductPreview } from "./AdminProductPreview"
 
 export default function AdminDash() {
     return (
@@ -8,9 +10,11 @@ export default function AdminDash() {
               <div className="grid grid-cols-1 md:grid-cols-5 gap-5">
                   <div className="col-span-1 md:col-span-3">
                       <h2 className="inline-block pb-8 font text-xl font-bold text-alt sm:text-2xl">My Products</h2>
-                      <div>A</div>
-                      <div>B</div>
-                      <div>C</div>
+                      <div className="h-full col-span-3 outline outline-offset-0 outline-3 px-5 outline-primary rounded overflow-y-auto" id="products">
+                        {TESTPRODUCTSALL.map((product) => (
+                          <AdminProductPreview product={product} />
+                      ))}
+                      </div>
                   </div>
                   <div className="col-span-1 md:col-span-2">
                       <h2 className="inline-block pb-8 font text-xl font-bold text-alt sm:text-2xl">My Orders</h2>
@@ -24,6 +28,7 @@ export default function AdminDash() {
                       </div>
                       <Link to="/products" className="h-fit inline-block rounded-md border border-transparent bg-secondary py-3 px-8 text-center font-medium text-white hover:bg-secondary">View All Orders</Link>
                   </div>
+
                   {/* Name -> new-product-name
                       Price -> new-product-price 
                       Quantity -> new-product-quantity

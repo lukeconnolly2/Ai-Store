@@ -1,10 +1,8 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { ProductListContext } from "../context/ProductListContext";
 
 export const AdminProductPreview = (props) => {
     const {id, productName, price, productImgUrl, type} = props.product;
-    const {productList} = useContext(ProductListContext);
+    const placeholderImgUrl = "https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM="
 
     const minus = () => (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -29,7 +27,7 @@ export const AdminProductPreview = (props) => {
                     <div className="text-xl text-bglight p-2">€{price}</div>
                     <div className="text-3xl text-center p-0 flex flex-rows">
                         <span className="p-2 text-right">{minus()}</span>
-                        <span className="text-3xl text-center p-0">  {cartItems[id]} </span>
+                        <span className="text-3xl text-center p-0"> 1 </span>
                         <span className="p-2">{plus()}</span>
                     </div>
                 </div>
