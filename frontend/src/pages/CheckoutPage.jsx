@@ -8,7 +8,7 @@ import {motion} from "framer-motion"
 const CheckoutPage = () => {
     const [isFormVisible, setIsFormVisible] = useState(false);
     const [isFormVisible2, setIsFormVisible2] = useState(false);
-    const [isFormVisible3, setIsFormVisible3] = useState(false);
+    const [showmodal, setShowModal] = useState(false);
     return (
 
         
