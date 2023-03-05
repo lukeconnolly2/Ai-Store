@@ -10,7 +10,7 @@ const CheckoutPage = () => {
     const [isFormVisible2, setIsFormVisible2] = useState(false);
     const [showmodal, setShowModal] = useState(false);
     return (
-
+<>
         
         
 <motion.main
@@ -156,8 +156,9 @@ const CheckoutPage = () => {
                 <hr className="h-px my-8 bg-gray-200 border-1 dark:bg-gray-700 "/>
 
     </div>
+    </div>
 </motion.main>
-      
+      </>
     )
   }
 
