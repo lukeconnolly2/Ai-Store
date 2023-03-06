@@ -97,7 +97,19 @@ export default function AdminDash() {
                         </div>
                       </div>
                       <div className="col-span-5 md:col-span-2">
-                        <div className="mb-6">
+                        <div className="relative">
+                          <label className="block tracking-wide font-bold mb-2" htmlFor="edit-product-visibility">
+                                Visibility
+                          </label>
+                          <select className="mb-10 block appearance-none w-full bg-gray-200 border border-gray-200 text-bgdark py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="edit-product-visibility">
+                              <option>Visible</option>
+                              <option>Hidden</option>
+                          </select>
+                          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 mt-8 text-bgdark">
+                              <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                          </div>
+                        </div>
+                        <div className="mb-6 pt-3">
                           <label className="block tracking-wide font-bold mb-2" htmlFor="new-product-image">Upload Image</label>
                           <input className="block w-full text-bgdark border border-gray-300 rounded p-2 mb-3 cursor-pointer bg-gray-200 focus:outline-none" id="new-product-image" type="file" accept={imageType} onChange={imagePreviewHandler}/>
                         </div>

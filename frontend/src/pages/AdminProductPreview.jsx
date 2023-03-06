@@ -4,7 +4,7 @@ import React, { useState } from "react";
 
 export const AdminProductPreview = (props) => {
     const [modal, setModal] = useState(false);
-    const {id, productName, price, productImgUrl, type, description, quantity} = props.product;
+    const {id, productName, price, productImgUrl, type, description, quantity, visibility} = props.product;
     const placeholderImgUrl = "https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM="
 
     return (
@@ -93,9 +93,21 @@ export const AdminProductPreview = (props) => {
                       <div className="col-span-5 md:col-span-2">
                         <div className="mb-6">
                           <label className="block tracking-wide font-bold mb-2" htmlFor="new-product-image">Upload Image</label>
-                          <input className="block w-full text-bgdark border border-gray-300 rounded p-2 mb-3 cursor-pointer bg-gray-200 focus:outline-none" id="new-product-image" type="file" accept="image/*"/>
+                          <input className="block w-full text-bgdark border border-gray-300 rounded p-2 mb-8 cursor-pointer bg-gray-200 focus:outline-none" id="new-product-image" type="file" accept="image/*"/>
                         </div>
-                        <div className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-2">
+                        <label className="block tracking-wide font-bold mb-2" htmlFor="edit-product-visibility">
+                              Visibility
+                        </label>
+                        <div className="relative">
+                            <select className="mb-8 block appearance-none w-full bg-gray-200 border border-gray-200 text-bgdark py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="edit-product-visibility">
+                                <option defaultValue={visibility === "Visible"}>Visible</option>
+                                <option defaultValue={visibility === "Hidden"}>Hidden</option>
+                            </select>
+                            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-bgdark">
+                                <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                            </div>
+                        </div>
+                        <div className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-2 mt-[75px]">
                             <div>
                                 <input type="submit" className="h-fit inline-block rounded-md border border-transparent bg-bgdark py-3 px-8 text-center font-medium text-white" value={"Submit"} onClick={() => setModal(false)}/>
                             </div>
