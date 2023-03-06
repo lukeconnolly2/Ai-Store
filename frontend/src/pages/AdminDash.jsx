@@ -5,7 +5,7 @@ import { AdminProductPreview } from "./AdminProductPreview"
 export default function AdminDash() {
     return (
         <>
-          <div className="px-5 md:px-10 pt-10">
+          <div className="p-5 md:px-10 pt-10">
             <h1 className="inline-block pb-8 font text-2xl font-bold text-alt sm:text-4xl">Admin Dashboard</h1>
               <div className="grid grid-cols-5 gap-0 md:gap-5">
                   <div className="col-span-5 md:col-span-3">
@@ -17,13 +17,13 @@ export default function AdminDash() {
                       </div>
                   </div>
                           
-                  <div className="col-span-5 md:col-span-2">
+                  <div className="col-span-5 my-10 md:my-0 md:col-span-2 md:pl-10">
                       <h2 className="inline-block pb-8 font text-xl font-bold text-alt sm:text-2xl">My Orders</h2>
-                      <div>
+                      <div className="my-5">
                           <span>Orders Today: </span>
                           <span>7</span>
                       </div>
-                      <div>
+                      <div className="my-5">
                           <span>Orders This Week: </span>
                           <span>24</span>
                       </div>
