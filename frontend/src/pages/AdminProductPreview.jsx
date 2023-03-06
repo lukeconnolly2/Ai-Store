@@ -38,42 +38,41 @@ export const AdminProductPreview = (props) => {
 
         {modal ? (
             <div className="justify-center items-center flex fixed inset-0 z-10">
-                <div className="h-[75vh] w-[75vw] bg-secondary rounded">
-                    <form action="post">
-                    <h2 className="inline-block pb-8 font text-xl font-bold text-alt sm:text-2xl">Edit Product ID: {id}</h2>
-                    <form className="grid grid-cols-1 md:grid-cols-5 gap-0 md:gap-5">
+                <div className="h-[75vh] w-[75vw] bg-secondary rounded p-10 overflow-y-auto md:overflow-hidden text-bgdark">
+                    <h2 className="inline-block pb-8 font text-xl font-bold  sm:text-2xl">Edit Product ID: {id}</h2>
+                    <form className="grid grid-cols-1 md:grid-cols-5 gap-0 md:gap-5" action="post">
                       <div className="col-span-5 md:col-span-3">
 
                         <div className="flex flex-wrap -mx-3 mb-6">
                           <div className="w-full px-3">
-                            <label className="block tracking-wide font-bold mb-2" forHTML="edit-product-name">
+                            <label className="block tracking-wide font-bold mb-2" htmlFor="edit-product-name">
                               Product Name
                             </label>
-                            <input className="appearance-none block w-full bg-gray-200 text-bgdark border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="edit-product-name" type="text" value={productName}/>
+                            <input className="appearance-none block w-full bg-gray-200 text-bgdark border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="edit-product-name" type="text" defaultValue={productName}/>
                           </div>
                         </div>
 
                         <div className="flex flex-wrap -mx-3 mb-6">
                           <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                            <label className="block tracking-wide font-bold mb-2" forHTML="edit-product-price">
+                            <label className="block tracking-wide font-bold mb-2" htmlFor="edit-product-price">
                               Price
                             </label>
-                            <input className="appearance-none block w-full bg-gray-200 text-bgdark border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="edit-product-price" type="number" value={price}/>
+                            <input className="appearance-none block w-full bg-gray-200 text-bgdark border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="edit-product-price" type="number" defaultValue={price}/>
                           </div>
                           <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                            <label className="block tracking-wide font-bold mb-2" forHTML="edit-product-quantity">
+                            <label className="block tracking-wide font-bold mb-2" htmlFor="edit-product-quantity">
                               Quantity
                             </label>
-                            <input className="appearance-none block w-full bg-gray-200 text-bgdark border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="edit-product-quantity" type="number" value={quantity}/>
+                            <input className="appearance-none block w-full bg-gray-200 text-bgdark border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="edit-product-quantity" type="number" defaultValue={quantity}/>
                           </div>
                           <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                            <label className="block tracking-wide font-bold mb-2" forHTML="edit-product-type">
+                            <label className="block tracking-wide font-bold mb-2" htmlFor="edit-product-type">
                               Type
                             </label>
                             <div className="relative">
                               <select className="block appearance-none w-full bg-gray-200 border border-gray-200 text-bgdark py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="edit-product-type">
-                                <option selected={type === "Trained"}>Trained</option>
-                                <option selected={type === "Untrained"}>Untrained</option>
+                                <option defaultValue={type === "Trained"}>Trained</option>
+                                <option defaultValue={type === "Untrained"}>Untrained</option>
                               </select>
                               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-bgdark">
                                 <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
@@ -84,26 +83,29 @@ export const AdminProductPreview = (props) => {
 
                         <div className="flex flex-wrap -mx-3 mb-6">
                           <div className="w-full px-3">
-                            <label className="block tracking-wide font-bold mb-2" forHTML="edit-product-description">
+                            <label className="block tracking-wide font-bold mb-2" htmlFor="edit-product-description">
                               Product Description
                             </label>
-                            <textarea className="appearance-none block w-full bg-gray-200 text-bgdark border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="new-product-description" rows="4" value={description}></textarea>
+                            <textarea className="appearance-none block w-full bg-gray-200 text-bgdark border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="new-product-description" rows="4" defaultValue={description}></textarea>
                           </div>
                         </div>
                       </div>
                       <div className="col-span-5 md:col-span-2">
                         <div className="mb-6">
-                          <label className="block tracking-wide font-bold mb-2" forHTML="new-product-image">Upload Image</label>
+                          <label className="block tracking-wide font-bold mb-2" htmlFor="new-product-image">Upload Image</label>
                           <input className="block w-full text-bgdark border border-gray-300 rounded p-2 mb-3 cursor-pointer bg-gray-200 focus:outline-none" id="new-product-image" type="file" accept="image/*"/>
                         </div>
-                        <button onClick={() => setModal(false)}>
-                            <input type="submit" className="h-fit inline-block rounded-md border border-transparent bg-secondary py-3 px-8 text-center font-medium text-white hover:bg-secondary" value={"Submit"}/>
-                        </button>
-                        
+                        <div className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-2">
+                            <div>
+                                <input type="submit" className="h-fit inline-block rounded-md border border-transparent bg-bgdark py-3 px-8 text-center font-medium text-white" value={"Submit"} onClick={() => setModal(false)}/>
+                            </div>
+                            <div>
+                                <button onClick={() => setModal(false)} className="h-fit inline-block rounded-md border border-transparent bg-bgdark py-3 px-8 text-center font-medium text-white">Close</button>
+                                <p className=" text-xs italic ml-50">Any changes will not be saved</p>
+                            </div>
+                        </div>
                       </div>
                     </form>
-                    </form>
-                    <button onClick={() => setModal(false)}>Close</button>
                 </div>
             </div>
         ):null}
