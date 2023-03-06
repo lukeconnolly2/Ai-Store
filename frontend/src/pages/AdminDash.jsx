@@ -1,8 +1,12 @@
 import {Link} from "react-router-dom"
 import { TESTPRODUCTSALL } from "../../TESTPRODUCTSALL"
 import { AdminProductPreview } from "./AdminProductPreview"
+import { ProductListContext } from "../context/ProductListContext"
+import { useContext } from "react"
 
 export default function AdminDash() {
+  const {fileDataURL, imagePreviewHandler, imageType} = useContext(ProductListContext)
+
     return (
         <>
           <div className="p-5 md:px-10 pt-10">
@@ -95,8 +99,14 @@ export default function AdminDash() {
                       <div className="col-span-5 md:col-span-2">
                         <div className="mb-6">
                           <label className="block tracking-wide font-bold mb-2" htmlor="new-product-image">Upload Image</label>
-                          <input className="block w-full text-bgdark border border-gray-300 rounded p-2 mb-3 cursor-pointer bg-gray-200 focus:outline-none" id="new-product-image" type="file" accept="image/*"/>
+                          <input className="block w-full text-bgdark border border-gray-300 rounded p-2 mb-3 cursor-pointer bg-gray-200 focus:outline-none" id="new-product-image" type="file" accept={imageType} onChange={imagePreviewHandler}/>
                         </div>
+                        {fileDataURL ?
+                            <p>
+                              {
+                                <img src={fileDataURL} alt="preview" className="max-w-[50%] h-auto mb-10"/>
+                              }
+                            </p> : null}
                         <input type="submit" className="h-fit inline-block rounded-md border border-transparent bg-secondary py-3 px-8 text-center font-medium text-white hover:bg-secondary" value={"Submit"}/>
                       </div>
                     </form>
