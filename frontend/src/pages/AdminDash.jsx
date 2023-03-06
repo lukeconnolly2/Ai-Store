@@ -7,8 +7,8 @@ export default function AdminDash() {
         <>
           <div className="px-5 md:px-10 pt-10">
             <h1 className="inline-block pb-8 font text-2xl font-bold text-alt sm:text-4xl">Admin Dashboard</h1>
-              <div className="grid grid-cols-1 md:grid-cols-5 gap-5">
-                  <div className="col-span-1 md:col-span-3">
+              <div className="grid grid-cols-5 gap-0 md:gap-5">
+                  <div className="col-span-5 md:col-span-3">
                       <h2 className="inline-block pb-8 font text-xl font-bold text-alt sm:text-2xl">My Products</h2>
                       <div className="h-[50vh] outline outline-offset-0 outline-3 px-5 outline-primary rounded overflow-y-auto mb-8" id="products">
                         {TESTPRODUCTSALL.map((product) => (
@@ -17,7 +17,7 @@ export default function AdminDash() {
                       </div>
                   </div>
                           
-                  <div className="col-span-1 md:col-span-2">
+                  <div className="col-span-5 md:col-span-2">
                       <h2 className="inline-block pb-8 font text-xl font-bold text-alt sm:text-2xl">My Orders</h2>
                       <div>
                           <span>Orders Today: </span>
