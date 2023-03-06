@@ -17,24 +17,16 @@ import java.util.ArrayList;
 @RestController
 public class ProductController {
     private ArrayList<Product> products = new ArrayList<Product>();
+    private int count = 0;
 
-    @Repository
-    public interface ProductRepository extends JpaRepository<Product,Long> {}
-
-    @Autowired
-    private ProductRepository productRepository;
-
-    public ProductRepository getProductRepository() {
-        return productRepository;
-    }
 
     @PostMapping("/test")
     public void add(HttpServletRequest request) throws SQLException {
 
-        int id = Integer.parseInt(request.getParameter("id"));
+        int id = count;
         String productName = request.getParameter("productName");
-        int quantity = Integer.parseInt(request.getParameter("quantity"));
         int price = Integer.parseInt(request.getParameter("price"));
+        int quantity = Integer.parseInt(request.getParameter("quantity"));
         String productImgUrl = request.getParameter("productImgUrl");
         String description = request.getParameter("description");
         String type = request.getParameter("type");
@@ -47,12 +39,12 @@ public class ProductController {
         product.setProductImgUrl(productImgUrl);
         product.setDescription(description);
         product.setType(type);
+        count++;
 
         System.out.println(id);
+        System.out.println("test");
 
         products.add(product);
-
-        productRepository.save(product);
 
     }
 

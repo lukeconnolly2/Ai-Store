@@ -1,26 +1,34 @@
 package com.aistore.backend;
 
 import com.aistore.backend.controller.ProductController;
-import com.aistore.backend.controller.ProductController.ProductRepository;
+
+import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.boot.SpringApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.mock.web.MockHttpServletRequest;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class H2Server {
+    private static ArrayList<Product> products;
 
-
-
+    public H2Server(ArrayList<Product> products) {
+        this.products = products;
+    }
 
     public static void main(String[] args) throws SQLException {
+        ProductController productController = new ProductController();
+        HttpServletRequest request = new MockHttpServletRequest();
+        productController.add(request);
 
-        Connection conn = DriverManager.getConnection("jdbc:h2:mem:tempdb");
+
+        Connection conn = DriverManager.getConnection("jdbc:h2:~/test");
         Statement stmt = conn.createStatement();
-        stmt.executeUpdate("CREATE TABLE products(id INT PRIMARY KEY, productName VARCHAR(255), price INT, description VARCHAR(255), type VARCHAR(255), quantity INT);");
+        stmt.executeUpdate("CREATE TABLE IF NOT EXISTS products(id INT PRIMARY KEY, productName VARCHAR(255), price INT, description VARCHAR(255), type VARCHAR(255), quantity INT)");
         PreparedStatement pstmt = conn.prepareStatement("INSERT INTO products(id, productName, price, description, type, quantity) VALUES (?, ?, ?, ?, ?, ?)");
 
-        ProductRepository productRepository = new ProductController().getProductRepository();
-        List<Product> products = productRepository.findAll();
 
         for (Product product : products) {
             pstmt.setInt(1, product.getId());
