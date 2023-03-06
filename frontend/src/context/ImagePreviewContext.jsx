@@ -1,8 +1,8 @@
 import {createContext, useEffect, useState} from "react"
 
-export const ProductListContext = createContext(null)
+export const ImagePreviewContext = createContext(null)
 
-export const ProductListContextProvider = (props) => {
+export const ImagePreviewContextProvider = (props) => {
     const imageType = /image\/(png|jpg|jpeg|gif)/i;
     const [file, setFile] = useState(null);
     const [fileDataURL, setFileDataURL] = useState(null);
@@ -39,7 +39,7 @@ export const ProductListContextProvider = (props) => {
 
     const contextValue = {fileDataURL, imagePreviewHandler, imageType}
     return(
-        <ProductListContext.Provider value={contextValue}>{props.children}</ProductListContext.Provider>
+        <ImagePreviewContext.Provider value={contextValue}>{props.children}</ImagePreviewContext.Provider>
     )
 
 };

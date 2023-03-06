@@ -11,7 +11,7 @@ import { ShopContextProvider } from "./context/ShopContext";
 import { AuthProvider, useAuth } from "./context/auth";
 import { RequireAuth } from "./context/RequireAuth";
 import  AdminDash from "./pages/AdminDash";
-import { ProductListContextProvider } from "./context/ProductListContext";
+import { ImagePreviewContextProvider } from "./context/ImagePreviewContext";
 
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
   return (
     <AuthProvider>
     <ShopContextProvider>
-    <ProductListContextProvider>
+    <ImagePreviewContextProvider>
     <div className="bg-bgdark text-primary font-coolfont">
       <NavBar/>
       <div className="container mx- mt-2">
@@ -36,7 +36,7 @@ function App() {
         </AnimatePresence>
       </div>
     </div>
-    </ProductListContextProvider>
+    </ImagePreviewContextProvider>
     </ShopContextProvider>
     </AuthProvider>
 )}

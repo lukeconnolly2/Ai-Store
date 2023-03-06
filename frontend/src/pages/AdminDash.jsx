@@ -1,11 +1,11 @@
 import {Link} from "react-router-dom"
 import { TESTPRODUCTSALL } from "../../TESTPRODUCTSALL"
 import { AdminProductPreview } from "./AdminProductPreview"
-import { ProductListContext } from "../context/ProductListContext"
+import { ImagePreviewContext } from "../context/ImagePreviewContext"
 import { useContext } from "react"
 
 export default function AdminDash() {
-  const {fileDataURL, imagePreviewHandler, imageType} = useContext(ProductListContext)
+  const {fileDataURL, imagePreviewHandler, imageType} = useContext(ImagePreviewContext)
 
     return (
         <>
@@ -98,7 +98,7 @@ export default function AdminDash() {
                       </div>
                       <div className="col-span-5 md:col-span-2">
                         <div className="mb-6">
-                          <label className="block tracking-wide font-bold mb-2" htmlor="new-product-image">Upload Image</label>
+                          <label className="block tracking-wide font-bold mb-2" htmlFor="new-product-image">Upload Image</label>
                           <input className="block w-full text-bgdark border border-gray-300 rounded p-2 mb-3 cursor-pointer bg-gray-200 focus:outline-none" id="new-product-image" type="file" accept={imageType} onChange={imagePreviewHandler}/>
                         </div>
                         {fileDataURL ?
