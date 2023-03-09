@@ -30,7 +30,7 @@ export default function Cart() {
           <div className="w-full h-1/6 flex items-end justify-end pt-10">{
             cartTotal() === 0 ?  
               <Link to="/products" class="h-fit inline-block rounded-md border border-transparent bg-secondary py-3 px-8 text-center font-medium text-white hover:bg-secondary">Go Back to Store</Link> : 
-              <Link to="/checkout" class="h-fit inline-block rounded-md border border-transparent bg-secondary py-3 px-8 font-medium text-white hover:bg-secondary text-right">Go to Checkout</Link>
+              <Link to="/checkoutpage" class="h-fit inline-block rounded-md border border-transparent bg-secondary py-3 px-8 font-medium text-white hover:bg-secondary text-right">Go to Checkout</Link>
           }
           </div>
         </div>
