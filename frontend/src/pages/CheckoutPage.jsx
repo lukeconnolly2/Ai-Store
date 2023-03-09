@@ -1,6 +1,9 @@
 import React, { useState } from "react";
-import {Link} from "react-router-dom"
 import {motion} from "framer-motion"
+import { useContext } from "react";
+import { TESTPRODUCTSALL } from "../../TESTPRODUCTSALL"
+import { ShopContext } from "../context/ShopContext"
+import { ProductPreview } from "./ProductPreview"
 
 
 
@@ -11,6 +14,7 @@ const CheckoutPage = () => {
     const [isFormVisible3, setIsFormVisible3] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [showModal2, setShowModal2] = useState(false);
+    const {cartItems} = useContext(ShopContext)
     
     return (
 <>
@@ -370,6 +374,11 @@ const CheckoutPage = () => {
             <div class="absolute left-1/2 -ml-0.5 w-0.5 h-screen bg-gray-600"></div>
             <div className="content-center">
                 <h1 className=" text-center text-5xl text-alt">Order Summary</h1>
+
+                {TESTPRODUCTSALL.filter((prod) => (cartItems[prod.id] > 0)).map((prod) => (
+                    <ProductPreview product={prod}/>
+                ))
+            }
 
             </div>
 
