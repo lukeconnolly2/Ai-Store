@@ -1,15 +1,13 @@
 package com.aistore.backend;
 
+import com.aistore.backend.Model.Product;
 import com.aistore.backend.controller.ProductController;
 
 import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.boot.SpringApplication;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.mock.web.MockHttpServletRequest;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
 
 public class H2Server {
     private static ArrayList<Product> products;

@@ -1,4 +1,4 @@
-package com.aistore.backend;
+package com.aistore.backend.Model;
 
 
 import jakarta.persistence.Entity;
