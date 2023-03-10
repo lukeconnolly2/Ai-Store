@@ -9,6 +9,9 @@ export default function Login() {
 
   const auth = useAuth()
   const handleLogin = () => {
+
+
+    
     auth.login(user)
     navigate("/products")
   }
