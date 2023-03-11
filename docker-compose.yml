@@ -1,0 +1,12 @@
+version: '3.1'
+
+services:
+  db:
+    image: mysql:latest
+    command: mysqld --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: supersecretpassword
+    ports:
+      - 3306:3306
+    volumes:
+      - ./db-dump:/docker-entrypoint-initdb.d
