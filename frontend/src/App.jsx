@@ -27,8 +27,8 @@ function App() {
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<RequireAuth> <Products /> </RequireAuth>} />
-            <Route path="product/:prodid" element={<ProductPage />}/>      
-            <Route path="/cart" element={<Cart />} />
+            <Route path="product/:prodid" element={<RequireAuth><ProductPage /></RequireAuth>}/>      
+            <Route path="/cart" element={<RequireAuth><Cart /></RequireAuth>} />
             <Route path="/checkoutpage" element={<CheckoutPage />} />
             <Route path="/login" element={<Login />}/>
             <Route path="/admindash" element={<AdminDash />}/>
