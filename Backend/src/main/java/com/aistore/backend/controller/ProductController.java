@@ -40,4 +40,9 @@ public class ProductController {
         repository.delete(p.get());
         return "Deleted";
     }
+
+    @GetMapping("/test")
+    public String test(){
+        return "Test";
+    }
 }
