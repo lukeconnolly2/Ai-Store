@@ -1,9 +1,22 @@
-import { TESTPRODUCTSDISPLAY } from "../../TESTPRODUCTSDISPLAY"
+import { useState, useEffect } from "react"
 import { Product } from "./product"
 import { motion } from "framer-motion"
-import { TESTPRODUCTSALL } from "../../TESTPRODUCTSALL"
+import { getProducts } from "../helpers/getProducts"
 
 export default function Products() {
+  const [allproducts, setProducts] = useState([])
+
+  useEffect(() => {
+    let mounted = true;
+    getProducts()
+      .then(items => {
+        if(mounted) {
+          setProducts(items)
+        }
+      })
+    return () => mounted = false;
+  }, [])
+  
   return (
     <motion.main
     className="main__container"
@@ -13,7 +26,7 @@ export default function Products() {
      transition={{ duration: .1 }}
     >
       <div id="products" className="grid grid-rows-auto w-100 gap-0 bg-bgdark object-cover">
-        {TESTPRODUCTSALL.map((product) => (
+        {allproducts.map((product) => (
             <Product product={product} />
         ))}
       </div>

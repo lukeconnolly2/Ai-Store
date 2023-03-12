@@ -1,5 +1,7 @@
 import {Link} from "react-router-dom"
 import {motion} from "framer-motion"
+import { getProducts } from "../helpers/getProducts"
+import { useState, useEffect } from "react"
 export default function Home() {
   return (
     <motion.main

@@ -1,16 +1,28 @@
 import { useParams } from "react-router-dom"
 import { Link } from "react-router-dom"
 import { animated, useSpring } from '@react-spring/web'
-import { useContext } from "react"
+import { useContext, useState, useEffect } from "react"
 import { ShopContext } from "../context/ShopContext"
-import { TESTPRODUCTSALL } from "../../TESTPRODUCTSALL"
 export default function ProductPage() {
+    const [allproducts, setProducts] = useState([])
+    const placeholderImgUrl = "https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM="
+
+
+    useEffect(() => {
+        let mounted = true;
+        getProducts()
+            .then(items => {
+                if(mounted) {
+                setProducts(items)
+            }
+      })
+        return () => mounted = false;
+    }, [])
+  
     const {prodid} = useParams()
-    const [prod] = TESTPRODUCTSALL.filter((product) => {return prodid == product.id})
+    const [prod] = allproducts.filter((product) => {return prodid == product.id})
     const {addToCart, cartItems} = useContext(ShopContext)
-    const cartItemsAmount = cartItems[prodid]
-    console.log(cartItemsAmount)
-    
+    const cartItemsAmount = cartItems[prodid]    
     const springs = useSpring({
         from:{ 
             x: 1000,
@@ -32,7 +44,7 @@ export default function ProductPage() {
                 </Link>
             </div>
             <div className="basis-4/12 pt-5 flex flex-col justify-evenly items-center">
-                 <div><img src={prod.productImgUrl} /></div>
+                 <div><img src={productImgUrl ? productImgUrl : placeholderImgUrl} /></div>
                  <div className="text-alt text-4xl">Price: €{prod.price}</div>
                  <div className="w-full h-16 bg-secondary text-white flex flex-row justify-center items-center rounded-md px-auto cursor-pointer" onClick={() =>addToCart(prodid)}>Add to Cart {cartItemsAmount > 0 ? <> ({cartItemsAmount})</> : <></>}</div>
             </div>
