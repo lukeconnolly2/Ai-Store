@@ -3,26 +3,25 @@ import { Link } from "react-router-dom"
 import { animated, useSpring } from '@react-spring/web'
 import { useContext, useState, useEffect } from "react"
 import { ShopContext } from "../context/ShopContext"
+import { getProductbyId } from "../helpers/getProductbyId"
 export default function ProductPage() {
-    const [allproducts, setProducts] = useState([])
+    const [prod, setProd] = useState([])
     const placeholderImgUrl = "https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM="
-
-
+    const {prodid} = useParams()
     useEffect(() => {
         let mounted = true;
-        getProducts()
+        getProductbyId(prodid)
             .then(items => {
                 if(mounted) {
-                setProducts(items)
+                setProd(items)
             }
       })
         return () => mounted = false;
     }, [])
   
-    const {prodid} = useParams()
-    const [prod] = allproducts.filter((product) => {return prodid == product.id})
     const {addToCart, cartItems} = useContext(ShopContext)
     const cartItemsAmount = cartItems[prodid]    
+    
     const springs = useSpring({
         from:{ 
             x: 1000,
@@ -34,7 +33,8 @@ export default function ProductPage() {
         },
         config: {duration: 500},
       })
-    return (
+    
+      return (
         <animated.div style={springs} className="flex flex-row justify-between h-[80vh]">
             <div className="basis-1/12 p-4">
                 <Link to="../../products">
@@ -44,7 +44,7 @@ export default function ProductPage() {
                 </Link>
             </div>
             <div className="basis-4/12 pt-5 flex flex-col justify-evenly items-center">
-                 <div><img src={productImgUrl ? productImgUrl : placeholderImgUrl} /></div>
+                 <div><img src={prod.productImgUrl ? prod.productImgUrl : placeholderImgUrl} /></div>
                  <div className="text-alt text-4xl">Price: €{prod.price}</div>
                  <div className="w-full h-16 bg-secondary text-white flex flex-row justify-center items-center rounded-md px-auto cursor-pointer" onClick={() =>addToCart(prodid)}>Add to Cart {cartItemsAmount > 0 ? <> ({cartItemsAmount})</> : <></>}</div>
             </div>

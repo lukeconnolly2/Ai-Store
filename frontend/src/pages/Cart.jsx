@@ -1,11 +1,24 @@
 import { useContext } from "react"
 import {Link} from "react-router-dom"
-import { TESTPRODUCTSALL } from "../../TESTPRODUCTSALL"
 import { ShopContext } from "../context/ShopContext"
 import { ProductPreview } from "./ProductPreview"
-
+import { useState, useEffect } from "react"
+import { getProducts } from "../helpers/getProducts"
 
 export default function Cart() {
+  const [allproducts, setProducts] = useState([])
+
+  useEffect(() => {
+    let mounted = true;
+    getProducts()
+      .then(items => {
+        if(mounted) {
+          setProducts(items)
+        }
+      })
+    return () => mounted = false;
+  }, [])
+  
   const {cartItems, cartTotal} = useContext(ShopContext)
   return (
     <div className="h-[80vh] w-full px-5 md:px-10 pt-10">
@@ -16,7 +29,7 @@ export default function Cart() {
         <div className="h-full col-span-3 outline outline-offset-0 outline-3 px-5 outline-primary rounded overflow-y-auto"> {
           cartTotal() === 0? 
             <div className="h-full flex justify-center items-center"><p className="font text-9xl text-center">:(</p></div> :
-            TESTPRODUCTSALL.filter((prod) => (cartItems[prod.id] > 0)).map((prod) => (
+            allproducts.filter((prod) => (cartItems[prod.id] > 0)).map((prod) => (
               <ProductPreview product={prod}/>
             ))
         } </div>
