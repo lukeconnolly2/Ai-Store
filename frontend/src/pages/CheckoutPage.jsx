@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {motion} from "framer-motion"
 import { useContext } from "react";
-import { TESTPRODUCTSALL } from "../../TESTPRODUCTSALL"
+import { getProducts } from "../helpers/getProducts";
 import { ShopContext } from "../context/ShopContext"
 import { ProductPreview } from "./ProductPreview"
 
@@ -15,7 +15,18 @@ const CheckoutPage = () => {
     const [showModal, setShowModal] = useState(false);
     const [showModal2, setShowModal2] = useState(false);
     const {cartItems} = useContext(ShopContext)
-    
+    const [allproducts, setProducts] = useState([])
+
+  useEffect(() => {
+    let mounted = true;
+    getProducts()
+      .then(items => {
+        if(mounted) {
+          setProducts(items)
+        }
+      })
+    return () => mounted = false;
+  }, [])
     return (
 <>
         
@@ -375,7 +386,7 @@ const CheckoutPage = () => {
             <div className="content-center">
                 <h1 className=" text-center text-5xl text-alt">Order Summary</h1>
 
-                {TESTPRODUCTSALL.filter((prod) => (cartItems[prod.id] > 0)).map((prod) => (
+                {allproducts.filter((prod) => (cartItems[prod.id] > 0)).map((prod) => (
                     <ProductPreview product={prod}/>
                 ))
             }

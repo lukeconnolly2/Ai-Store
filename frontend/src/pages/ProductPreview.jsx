@@ -15,6 +15,8 @@ export const ProductPreview = (props) => {
                       </svg> 
                       )
 
+  const placeholderImgUrl = "https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM="
+
   return (
     <div className="text-slate-900 bg-primary h-[35vh] lg:h-[25vh] col-span-2 rounded my-5">
       <div className="px-3 pt-10 lg:pt-3 text-3xl lg:text-xl box-border h-[5vh] font-bold">

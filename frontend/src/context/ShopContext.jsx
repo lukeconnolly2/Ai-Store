@@ -1,11 +1,12 @@
 import {createContext, useState} from "react"
-import { TESTPRODUCTSALL } from "../../TESTPRODUCTSALL"
+import { getProducts } from "../helpers/getProducts"
 
 export const ShopContext = createContext(null)
+export const allproducts = await getProducts()
 
 const getDefaultCart = () => {
     let cart = {}
-    for(let i = 1; i < TESTPRODUCTSALL.length + 1; i++ ){
+    for(let i = 1; i < allproducts.length + 1; i++ ){
         cart[i] = 0
     }
     return cart
@@ -29,13 +30,12 @@ export const ShopContextProvider = (props) => {
     const cartTotal = () => {
         let total = 0;
         for(const productid in cartItems){
-            total += TESTPRODUCTSALL[productid-1].price * cartItems[productid]
+            total += allproducts[productid-1].price * cartItems[productid]
         }
         return total
     }
 
     const contextValue = {cartItems, addToCart, removeFromCart, removeAllFromCart, cartTotal}
-    console.log(cartItems)
     return(
         <ShopContext.Provider value={contextValue}> {props.children}</ShopContext.Provider>
     )

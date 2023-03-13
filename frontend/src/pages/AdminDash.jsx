@@ -1,11 +1,23 @@
 import {Link} from "react-router-dom"
-import { TESTPRODUCTSALL } from "../../TESTPRODUCTSALL"
 import { AdminProductPreview } from "./AdminProductPreview"
 import { ImagePreviewContext } from "../context/ImagePreviewContext"
-import { useContext } from "react"
+import { useContext, useState, useEffect } from "react"
+import { getProducts } from "../helpers/getProducts"
 
 export default function AdminDash() {
   const {fileDataURL, imagePreviewHandler, imageType} = useContext(ImagePreviewContext)
+  const [allproducts, setProducts] = useState([])
+
+  useEffect(() => {
+    let mounted = true;
+    getProducts()
+      .then(items => {
+        if(mounted) {
+          setProducts(items)
+        }
+      })
+    return () => mounted = false;
+  }, [])
 
     return (
         <>
@@ -15,7 +27,7 @@ export default function AdminDash() {
                   <div className="col-span-5 md:col-span-3">
                       <h2 className="inline-block pb-8 font text-xl font-bold text-alt sm:text-2xl">My Products</h2>
                       <div className="h-[50vh] outline outline-offset-0 outline-3 px-5 outline-primary rounded overflow-y-auto mb-8" id="products">
-                        {TESTPRODUCTSALL.map((product) => (
+                        {allproducts.map((product) => (
                           <AdminProductPreview product={product} />
                       ))}
                       </div>

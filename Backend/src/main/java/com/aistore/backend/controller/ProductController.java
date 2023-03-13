@@ -43,10 +43,4 @@ public class ProductController {
         repository.delete(p.get());
         return "Deleted";
     }
-
-    @GetMapping("/test")
-    @CrossOrigin
-    public String test(){
-        return "Test";
-    }
 }
