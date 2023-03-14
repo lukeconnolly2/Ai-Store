@@ -1,19 +1,30 @@
 import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/auth'
+import { loginUser } from '../helpers/loginUser'
 
 export default function Login() {
   const navigate = useNavigate()
-  const [user, setUser] = useState('')  
+  const [username, setUser] = useState('')  
   const [password, setPassword] = useState('')  
+  const [message, setMessage] = useState('')
 
   const auth = useAuth()
-  const handleLogin = () => {
-
-
-    
-    auth.login(user)
-    navigate("/products")
+  const handleLogin = async (e) => {
+    e.preventDefault()
+    console.log({
+      username,
+      password
+    })
+    const response = await loginUser({
+      username,
+      password
+    });
+    console.log(response.accessToken)
+    if (response.accessToken === username) {
+      auth.login(username)
+      navigate("/products")
+    }
   }
 
   return (
@@ -36,7 +47,7 @@ export default function Login() {
             <div className="mb-4">
               <button className="bg-bgdark hover:bg-bglight text-white font-bold p-3 w-full rounded-lg" onClick={handleLogin}>Login</button>
             </div>
-
+            {message ? message : ""}
           
           <p className="text-sm text-gray-600 text-center">Don't have an account? <a href="/login" className="text-blue-700 hover:text-blue-400">Create here</a>.</p>
         </div>
