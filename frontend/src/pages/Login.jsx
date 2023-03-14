@@ -23,6 +23,8 @@ export default function Login() {
     if (response.accessToken === username) {
       auth.login(username)
       navigate("/products")
+    }else{
+      alert(response.type)
     }
   }
 
@@ -46,7 +48,7 @@ export default function Login() {
             <div className="mb-4">
               <button className="bg-bgdark hover:bg-bglight text-white font-bold p-3 w-full rounded-lg" onClick={handleLogin}>Login</button>
             </div>
-            {message ? message : ""}
+            {message !== '' ? <h3>{message}</h3> : ''}
           
           <p className="text-sm text-gray-600 text-center">Don't have an account? <a href="/login" className="text-blue-700 hover:text-blue-400">Create here</a>.</p>
         </div>
