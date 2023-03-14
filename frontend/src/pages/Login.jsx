@@ -20,7 +20,6 @@ export default function Login() {
       username,
       password
     });
-    console.log(response.accessToken)
     if (response.accessToken === username) {
       auth.login(username)
       navigate("/products")
