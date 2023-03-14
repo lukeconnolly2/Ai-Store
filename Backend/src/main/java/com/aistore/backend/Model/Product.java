@@ -23,4 +23,5 @@ public class Product {
     private String productImgUrl;
     private String description;
     private String type;
+    private String visibility;
 }

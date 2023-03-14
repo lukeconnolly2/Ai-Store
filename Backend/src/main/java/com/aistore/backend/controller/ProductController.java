@@ -33,14 +33,33 @@ public class ProductController {
         return repository.findById(Integer.parseInt(id));
     }
 
-    @PostMapping("/deleteProduct")
+    @PostMapping("/deleteProduct/{id}")
     @CrossOrigin
-    public String deleteProduct(@RequestBody String id){
+    public String deleteProduct(@PathVariable String id){
         Optional<Product> p = repository.findById(Integer.parseInt(id));
         if(p.isEmpty()){
             return "Product doesnt exits";
         }
         repository.delete(p.get());
         return "Deleted";
+    }
+
+    @PostMapping("/updateproduct/{id}")
+    @CrossOrigin
+    public String updateProductById(@PathVariable String id, @RequestBody Product newProduct){
+        Optional<Product> p = repository.findById(Integer.parseInt(id));
+        if(p.isEmpty()){
+            return "Product doesnt exits";
+        }
+        Product oldProduct = p.get();
+        oldProduct.setProductName(newProduct.getProductName());
+        oldProduct.setProductImgUrl(newProduct.getProductImgUrl());
+        oldProduct.setType(newProduct.getType());
+        oldProduct.setPrice(newProduct.getPrice());
+        oldProduct.setDescription(newProduct.getDescription());
+        oldProduct.setVisibility(newProduct.getVisibility());
+        System.out.println(oldProduct);
+        repository.save(oldProduct);
+        return "Success";
     }
 }

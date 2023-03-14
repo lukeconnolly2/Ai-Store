@@ -4,9 +4,30 @@ import React, { useState } from "react";
 
 export const AdminProductPreview = (props) => {
     const [modal, setModal] = useState(false);
-    const {id, productName, price, productImgUrl, type, description, quantity, visibility} = props.product;
+    const [newProductName, setNewProductName] = useState('')
+    const [newPrice, setNewPrice] = useState(0)
+    const [newProductImgUrl, setNewProductImgUrl] = useState('')
+    const [newType, setNewType] = useState('Trained')
+    const [newDescription, setNewDescription] = useState('')
+    const [newVisibility, setNewVisibility] = useState('visible')
+    const {id, productName, price, productImgUrl, type, description, visibility} = props.product;
     const placeholderImgUrl = "https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM="
 
+    function handleUpdate(event) {
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          "productName": newProductName,
+          "price": newPrice,
+          "productImgUrl": newProductImgUrl,
+          "description": newDescription,
+          "type": newType,
+          "visibility": newVisibility
+         })
+    };
+    fetch(`http://localhost:8080/updateproduct/${id}`, requestOptions)
+    }
     return (
     <>
         <div className={`text-slate-900 bg-primary h-[40vh] lg:h-[25vh] col-span-2 rounded my-5  ${visibility === "hidden" ? "opacity-50" : ""}`}>
@@ -22,7 +43,7 @@ export const AdminProductPreview = (props) => {
                     <div className="outline outline-offset-0 outline-3 p-2 outline-bgdark rounded h-28 text-xs overflow-y-auto">{description}</div>
                     <div>
                         <div className="my-10">Price: €{price}</div>
-                        <div>Quantity: {quantity}</div>
+                        
                     </div>
                 </div>
                 <div className="basis-1/12 text-3xl px-4" >
@@ -40,7 +61,7 @@ export const AdminProductPreview = (props) => {
             <div className="justify-center items-center flex fixed inset-0 z-10">
                 <div className="h-[75vh] w-[75vw] bg-secondary rounded p-10 overflow-y-auto md:overflow-hidden text-bgdark">
                     <h2 className="inline-block pb-8 font text-xl font-bold  sm:text-2xl">Edit Product ID: {id}</h2>
-                    <form className="grid grid-cols-1 md:grid-cols-5 gap-0 md:gap-5" action="post">
+                    <form className="grid grid-cols-1 md:grid-cols-5 gap-0 md:gap-5" onSubmit={handleUpdate}>
                       <div className="col-span-5 md:col-span-3">
 
                         <div className="flex flex-wrap -mx-3 mb-6">
@@ -48,7 +69,12 @@ export const AdminProductPreview = (props) => {
                             <label className="block tracking-wide font-bold mb-2" htmlFor="edit-product-name">
                               Product Name
                             </label>
-                            <input className="appearance-none block w-full bg-gray-200 text-bgdark border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="edit-product-name" type="text" defaultValue={productName}/>
+                            <input  className="appearance-none block w-full bg-gray-200 text-bgdark border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" 
+                                    id="edit-product-name" 
+                                    type="text" 
+                                    defaultValue={newProductName} 
+                                    onChange={(e) => setNewProductName(e.target.value)}
+                                    />
                           </div>
                         </div>
 
@@ -57,20 +83,21 @@ export const AdminProductPreview = (props) => {
                             <label className="block tracking-wide font-bold mb-2" htmlFor="edit-product-price">
                               Price
                             </label>
-                            <input className="appearance-none block w-full bg-gray-200 text-bgdark border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="edit-product-price" type="number" defaultValue={price}/>
-                          </div>
-                          <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                            <label className="block tracking-wide font-bold mb-2" htmlFor="edit-product-quantity">
-                              Quantity
-                            </label>
-                            <input className="appearance-none block w-full bg-gray-200 text-bgdark border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="edit-product-quantity" type="number" defaultValue={quantity}/>
+                            <input  className="appearance-none block w-full bg-gray-200 text-bgdark border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+                                    id="edit-product-price" 
+                                    type="number" 
+                                    defaultValue={newPrice}
+                                    onChange={(e) => setNewPrice(e.target.value)}
+                                    />
                           </div>
                           <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                             <label className="block tracking-wide font-bold mb-2" htmlFor="edit-product-type">
                               Type
                             </label>
                             <div className="relative">
-                              <select className="block appearance-none w-full bg-gray-200 border border-gray-200 text-bgdark py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="edit-product-type">
+                              <select className="block appearance-none w-full bg-gray-200 border border-gray-200 text-bgdark py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="edit-product-type"
+                              onChange={(e) => setNewType(e.target.value)}
+                              >
                                 <option defaultValue={type === "Trained"}>Trained</option>
                                 <option defaultValue={type === "Untrained"}>Untrained</option>
                               </select>
@@ -86,7 +113,12 @@ export const AdminProductPreview = (props) => {
                             <label className="block tracking-wide font-bold mb-2" htmlFor="edit-product-description">
                               Product Description
                             </label>
-                            <textarea className="appearance-none block w-full bg-gray-200 text-bgdark border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="new-product-description" rows="4" defaultValue={description}></textarea>
+                            <textarea className="appearance-none block w-full bg-gray-200 text-bgdark border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+                                      id="new-product-description" 
+                                      rows="4" 
+                                      defaultValue={newDescription}
+                                      onChange={(e) => setNewDescription(e.target.value)}
+                                      ></textarea>
                           </div>
                         </div>
                       </div>
@@ -99,9 +131,12 @@ export const AdminProductPreview = (props) => {
                               Visibility
                         </label>
                         <div className="relative">
-                            <select className="mb-8 block appearance-none w-full bg-gray-200 border border-gray-200 text-bgdark py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="edit-product-visibility">
-                                <option defaultValue={visibility === "visible"}>Visible</option>
-                                <option defaultValue={visibility === "hidden"}>Hidden</option>
+                            <select className="mb-8 block appearance-none w-full bg-gray-200 border border-gray-200 text-bgdark py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+                                    id="edit-product-visibility"
+                                    onChange={(e) => setNewVisibility(e.target.value)}
+                                    >
+                                <option>visible</option>
+                                <option>hidden</option>
                             </select>
                             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-bgdark">
                                 <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
@@ -109,11 +144,10 @@ export const AdminProductPreview = (props) => {
                         </div>
                         <div className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-2 mt-[75px]">
                             <div>
-                                <input type="submit" className="h-fit inline-block rounded-md border border-transparent bg-bgdark py-3 px-8 text-center font-medium text-white" value={"Submit"} onClick={() => setModal(false)}/>
+                                <input type="submit" className="h-fit inline-block rounded-md border border-transparent bg-bgdark py-3 px-8 text-center font-medium text-white" value={"Submit"} />
                             </div>
                             <div>
-                                <button onClick={() => setModal(false)} className="h-fit inline-block rounded-md border border-transparent bg-bgdark py-3 px-8 text-center font-medium text-white">Close</button>
-                                <p className=" text-xs italic ml-50">Any changes will not be saved</p>
+                                
                             </div>
                         </div>
                       </div>

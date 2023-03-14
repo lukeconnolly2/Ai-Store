@@ -1,4 +1,4 @@
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 import { AdminProductPreview } from "./AdminProductPreview"
 import { ImagePreviewContext } from "../context/ImagePreviewContext"
 import { useContext, useState, useEffect } from "react"
@@ -69,21 +69,14 @@ export default function AdminDash() {
                         </div>
 
                         <div className="flex flex-wrap -mx-3 mb-6">
-                          <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                          <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                             <label className="block tracking-wide font-bold mb-2" htmlFor="new-product-price">
                               Price
                             </label>
                             <input className="appearance-none block w-full bg-gray-200 text-bgdark border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="new-product-price" type="number" placeholder="£0.00" required/>
                             <p className="text-alt text-xs italic">Please fill out this field.</p>
                           </div>
-                          <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                            <label className="block tracking-wide font-bold mb-2" htmlFor="new-product-quantity">
-                              Quantity
-                            </label>
-                            <input className="appearance-none block w-full bg-gray-200 text-bgdark border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="new-product-quantity" type="number" placeholder="0" required/>
-                            <p className="text-alt text-xs italic">Please fill out this field.</p>
-                          </div>
-                          <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                          <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                             <label className="block tracking-wide font-bold mb-2" htmlFor="new-product-type">
                               Type
                             </label>

@@ -26,7 +26,7 @@ export default function Products() {
      transition={{ duration: .1 }}
     >
       <div id="products" className="grid grid-rows-auto w-100 gap-0 bg-bgdark object-cover">
-        {allproducts.map((product) => (
+        {allproducts.filter(product => product.visibility === "visible").map((product) => (
             <Product product={product} />
         ))}
       </div>
