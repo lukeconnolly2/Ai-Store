@@ -14,7 +14,7 @@ public class ProductController {
     @Autowired
     private ProductRepository repository;
 
-    @PostMapping("/addProduct")
+    @PostMapping("/addproduct")
     @CrossOrigin
     public String addProduct(@RequestBody Product product){
         repository.save(product);
