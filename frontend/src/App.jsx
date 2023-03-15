@@ -8,11 +8,13 @@ import ProductPage from "./pages/ProductPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import Login from "./pages/Login"
 import NewProfile from "./pages/NewProfile";
+import AdminLogin from "./pages/AdminLogin";
 import { ShopContextProvider } from "./context/ShopContext";
 import { AuthProvider, useAuth } from "./context/auth";
 import { RequireAuth } from "./context/RequireAuth";
 import  AdminDash from "./pages/AdminDash";
 import { ImagePreviewContextProvider } from "./context/ImagePreviewContext";
+import { AdminRequireAuth } from "./context/adminRequireAuth";
 
 
 function App() {
@@ -32,8 +34,9 @@ function App() {
             <Route path="/cart" element={<RequireAuth><Cart /></RequireAuth>} />
             <Route path="/checkoutpage" element={<CheckoutPage />} />
             <Route path="/login" element={<Login />}/>
-            <Route path="/admindash" element={<AdminDash />}/>
+            <Route path="/admindash" element={<AdminRequireAuth><AdminDash /></AdminRequireAuth>}/>
             <Route path="/newprofile" element={<NewProfile />}/>
+            <Route path="/adminlogin" element={<AdminLogin />} />
           </Routes>
         </AnimatePresence>
       </div>

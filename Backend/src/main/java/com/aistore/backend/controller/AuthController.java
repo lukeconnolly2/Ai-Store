@@ -54,8 +54,9 @@ public class AuthController {
     @PostMapping("/adminlogin")
     @CrossOrigin
     public Map<String, String> adminlogin(@RequestBody AdminUser user){
+        System.out.println(user);
         HashMap<String, String> res = new HashMap<>();
-        Optional<User> u = adminRepository.findByUsername(user.getUsername());
+        Optional<AdminUser> u = adminRepository.findByUsername(user.getUsername());
         if(u.isEmpty()){
             res.put("type", "Invalid Username");
             return res;
