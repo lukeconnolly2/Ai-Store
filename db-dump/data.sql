@@ -1,1 +1,85 @@
 CREATE DATABASE AiStore;
+INSERT INTO product
+    ( id, productname, price, productImgUrl, description, type, visibility )
+VALUES
+    ('0', 
+    'Nexus', 
+    1999, 
+    'https://cdn.technologyadvice.com/wp-content/uploads/2018/02/friendly-chatbot.jpg', 
+    'Introducing our AI-powered chatbot model, perfect for streamlining customer service interactions and increasing efficiency in your business.', 
+    'trained', 
+    'hidden'),
+
+    ('1', 
+    'Nexus', 
+    1999, 
+    'https://cdn.technologyadvice.com/wp-content/uploads/2018/02/friendly-chatbot.jpg', 
+    'Introducing our AI-powered chatbot model, perfect for streamlining customer service interactions and increasing efficiency in your business.', 
+    'untrained', 
+    'hidden'),
+
+    ('2', 
+    'Helix', 
+    1399, 
+    'https://imageio.forbes.com/specials-images/imageserve/636063ae49e46108de0472a1/Medical-technology-concept--Remote-medicine--Electronic-medical-record-/960x0.jpg?format=jpg&width=960', 
+    'Revolutionize your healthcare organization with our medical diagnosis AI model, capable of accurately identifying illnesses and recommending treatment options.',
+    'trained', 
+    'hidden'),
+
+    ('3', 
+    'Helix', 
+    1399, 
+    'https://imageio.forbes.com/specials-images/imageserve/636063ae49e46108de0472a1/Medical-technology-concept--Remote-medicine--Electronic-medical-record-/960x0.jpg?format=jpg&width=960', 
+    'Revolutionize your healthcare organization with our medical diagnosis AI model, capable of accurately identifying illnesses and recommending treatment options.',
+    'untrained', 
+    'hidden'),
+
+    ('4', 
+    'Neo', 
+    1299, 
+    'https://www.nist.gov/sites/default/files/images/2020/08/28/shutterstock_1063997141_960x600.jpg', 
+    'Our predictive maintenance AI model can help reduce downtime and maintenance costs for your manufacturing facility by analyzing equipment data and predicting failures before they occur.',
+    'trained', 
+    'hidden'),
+
+    ('5', 
+    'Neo', 
+    1299, 
+    'https://www.nist.gov/sites/default/files/images/2020/08/28/shutterstock_1063997141_960x600.jpg', 
+    'Our predictive maintenance AI model can help reduce downtime and maintenance costs for your manufacturing facility by analyzing equipment data and predicting failures before they occur.',
+    'untrained', 
+    'hidden'),
+
+    ('6', 
+    'Sagan', 
+    1949, 
+    'https://professional.dce.harvard.edu/wp-content/uploads/sites/9/2020/11/artificial-intelligence-business.jpg', 
+    'Transform your marketing strategy with our AI-powered recommendation engine, which uses customer data to suggest personalized product recommendations.',
+    'trained', 
+    'hidden'),
+
+    ('7', 
+    'Sagan', 
+    1949, 
+    'https://professional.dce.harvard.edu/wp-content/uploads/sites/9/2020/11/artificial-intelligence-business.jpg', 
+    'Transform your marketing strategy with our AI-powered recommendation engine, which uses customer data to suggest personalized product recommendations.',
+    'untrained', 
+    'hidden'),
+
+    ('8', 
+    'Veda', 
+    4399, 
+    'https://imageio.forbes.com/specials-images/imageserve/614b856b91e7d8da240c0d2e/Robot-showing-the-security-padlock/960x0.jpg?format=jpg&width=960', 
+    'Streamline your financial services with our fraud detection AI model, which uses machine learning to identify and prevent fraudulent transactions.',
+    'untrained', 
+    'hidden'),
+
+    ('9', 
+    'Veda', 
+    4399, 
+    'https://imageio.forbes.com/specials-images/imageserve/614b856b91e7d8da240c0d2e/Robot-showing-the-security-padlock/960x0.jpg?format=jpg&width=960', 
+    'Streamline your financial services with our fraud detection AI model, which uses machine learning to identify and prevent fraudulent transactions.',
+    'untrained', 
+    'hidden');
+
+
