@@ -24,7 +24,7 @@ export default function Login() {
       auth.login(username)
       navigate("/products")
     }else{
-      alert(response.type)
+      console.log(response)
     }
   }
 
