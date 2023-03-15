@@ -9,7 +9,7 @@ export const AdminProductPreview = (props) => {
     const [newProductImgUrl, setNewProductImgUrl] = useState('')
     const [newType, setNewType] = useState('Trained')
     const [newDescription, setNewDescription] = useState('')
-    const [newVisibility, setNewVisibility] = useState('visible')
+    const [newVisibility, setNewVisibility] = useState('visable')
     const {id, productName, price, productImgUrl, type, description, visibility} = props.product;
     const placeholderImgUrl = "https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM="
 

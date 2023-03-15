@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/auth'
 import { loginUser } from '../helpers/loginUser'
 
@@ -50,7 +50,7 @@ export default function Login() {
             </div>
             {message !== '' ? <h3>{message}</h3> : ''}
           
-          <p className="text-sm text-gray-600 text-center">Don't have an account? <a href="/login" className="text-blue-700 hover:text-blue-400">Create here</a>.</p>
+          <p className="text-sm text-gray-600 text-center">Don't have an account? <Link to="/newprofile" className="text-blue-700 hover:text-blue-400">Create here</Link>.</p>
         </div>
       </div>
     </div>

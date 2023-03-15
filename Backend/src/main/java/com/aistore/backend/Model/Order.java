@@ -4,23 +4,22 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table( name = "user")
-public class User {
+@Table(name = "orders")
+public class Order {
     @Id
     @GeneratedValue
-    @Column(name = "id")
-    private long id;
-    private String username;
-    private String password;
+    private Long id;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Order> order;
+    @ManyToOne
+    private User user;
 
+    @OneToMany
+    private List<Product> orderItems = new ArrayList<>();
 }
