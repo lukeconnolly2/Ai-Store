@@ -16,7 +16,6 @@ export default function Products() {
       })
     return () => mounted = false;
   }, [])
-  
   return (
     <motion.main
     className="main__container"
@@ -26,7 +25,7 @@ export default function Products() {
      transition={{ duration: .1 }}
     >
       <div id="products" className="grid grid-rows-auto w-100 gap-0 bg-bgdark object-cover">
-        {allproducts.filter(product => product.visibility === "visible").map((product) => (
+        {allproducts.filter(product => product.visibility === "visable").map((product) => (
             <Product product={product} />
         ))}
       </div>

@@ -12,7 +12,7 @@ export default function AdminDash() {
   const [newProductImgUrl, setNewProductImgUrl] = useState('')
   const [newType, setNewType] = useState('Trained')
   const [newDescription, setNewDescription] = useState('')
-  const [newVisibility, setNewVisibility] = useState('visible')
+  const [newVisibility, setNewVisibility] = useState('visable')
 
   useEffect(() => {
     let mounted = true;
@@ -155,7 +155,7 @@ export default function AdminDash() {
                             id="edit-product-visibility"
                             onChange={(e) => setNewVisibility(e.target.value)}
                             >
-                              <option>visible</option>
+                              <option>visable</option>
                               <option>hidden</option>
                           </select>
                           <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 mt-8 text-bgdark">
