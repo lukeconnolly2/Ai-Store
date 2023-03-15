@@ -7,6 +7,7 @@ import Cart from "./pages/Cart";
 import ProductPage from "./pages/ProductPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import Login from "./pages/Login"
+import NewProfile from "./pages/NewProfile";
 import { ShopContextProvider } from "./context/ShopContext";
 import { AuthProvider, useAuth } from "./context/auth";
 import { RequireAuth } from "./context/RequireAuth";
@@ -32,6 +33,7 @@ function App() {
             <Route path="/checkoutpage" element={<CheckoutPage />} />
             <Route path="/login" element={<Login />}/>
             <Route path="/admindash" element={<AdminDash />}/>
+            <Route path="/newprofile" element={<NewProfile />}/>
           </Routes>
         </AnimatePresence>
       </div>
