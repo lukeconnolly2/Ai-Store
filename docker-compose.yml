@@ -10,3 +10,16 @@ services:
       - 3306:3306
     volumes:
       - ./db-dump:/docker-entrypoint-initdb.d
+  
+  frontend:
+    container_name: react
+    build:
+      context: ./frontend
+      dockerfile: dockerfile
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      - 5173:80
+    environment:
+      - CHOKIDAR_USEPOLLING=true
