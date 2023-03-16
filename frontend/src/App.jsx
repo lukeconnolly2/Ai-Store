@@ -13,6 +13,7 @@ import { ShopContextProvider } from "./context/ShopContext";
 import { AuthProvider, useAuth } from "./context/auth";
 import { RequireAuth } from "./context/RequireAuth";
 import  AdminDash from "./pages/AdminDash";
+import  PaymentSuccess from "./pages/PaymentSuccess";
 import { ImagePreviewContextProvider } from "./context/ImagePreviewContext";
 import { AdminRequireAuth } from "./context/adminRequireAuth";
 
@@ -37,6 +38,7 @@ function App() {
             <Route path="/admindash" element={<AdminRequireAuth><AdminDash /></AdminRequireAuth>}/>
             <Route path="/newprofile" element={<NewProfile />}/>
             <Route path="/adminlogin" element={<AdminLogin />} />
+            <Route path="/paymentsuccess" element={<PaymentSuccess />} />
           </Routes>
         </AnimatePresence>
       </div>
